@@ -11,7 +11,7 @@ namespace ProgramStudent
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             string dots = "...";
-            string hmm = "\n *gwizdanie* \n *szelest papierow*";
+            string hmm = "\n *Whisteling* \n *papers rustle*";
 
             foreach (char t in dots)
             {
@@ -31,7 +31,7 @@ namespace ProgramStudent
             List<string> texts = new List<string>
             {
                 "Oh! HELLO! ",
-                "I'm so sorry, I didn't see ypu there...\n",
+                "I'm so sorry, I didn't see you there...\n",
                 "Aaay... We have a lot of work today \n",
                 "Are you here to submit documents? \n",
                 "GREAT!!!!\n",
@@ -73,7 +73,7 @@ namespace ProgramStudent
                 {
                     if(!char.IsDigit(c))
                     {
-                        Console.WriteLine("You must type digits only...");
+                        Console.WriteLine("You can type digits only...");
                         break;
                     }
                     
@@ -86,7 +86,7 @@ namespace ProgramStudent
                 }
                 else if (playerBio.PhoneNumber.Length < 9)
                 {
-                    Console.WriteLine("This phone number is too short (9 d`)...");
+                    Console.WriteLine("This phone number is too short (9 digits)...");
                     Console.WriteLine("");
                     Console.Write("PHONE NUMBER: ");
                 }
@@ -137,7 +137,7 @@ namespace ProgramStudent
                     // TUTAJ PRZENIESIENIE DO GRY
 
                 }
-                else if (ans == "NIE")
+                else if (ans == "NO")
                 {
                     Console.WriteLine("Ah... Maybe should you try next time another year...? ");
 
@@ -146,6 +146,7 @@ namespace ProgramStudent
                 else
                 {
                     Console.WriteLine("Please... type what they are demanding from you");
+                    continue;
                 }
             }
         }

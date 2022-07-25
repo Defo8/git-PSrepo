@@ -50,9 +50,6 @@ namespace ProgramStudent
 
             }*/ //Testy datetime
 
-
-
-
              HUD.MenuIntro();
              game.Menu();
 
