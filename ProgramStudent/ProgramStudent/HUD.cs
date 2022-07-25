@@ -15,13 +15,13 @@ namespace ProgramStudent
 
             foreach (char t in dots)
             {
-                Thread.Sleep(250);
+                Thread.Sleep(150);
                 Console.Write(t);
             }
 
             foreach (char t in hmm)
             {
-                Thread.Sleep(250);
+                Thread.Sleep(150);
                 Console.Write(t);
             }
 
@@ -67,19 +67,28 @@ namespace ProgramStudent
             Console.Write("NUMER TELEFONU: ");
 
             while (true)
-            {
+            {                             
                 playerBio.PhoneNumber = Console.ReadLine();
+                foreach (char c in playerBio.PhoneNumber)
+                {
+                    if(!char.IsDigit(c))
+                    {
+                        Console.WriteLine("You must type digits only...");
+                        break;
+                    }
+                    
+                }
                 if (playerBio.PhoneNumber.Length > 9)
                 {
-                    Console.WriteLine("Cos chyba za dlugi ten numer...");
+                    Console.WriteLine("Type 9 digits,  no more");
                     Console.WriteLine("");
-                    Console.Write("NUMER TELEFONU: ");
+                    Console.Write("PHONE NUMBER: ");
                 }
                 else if (playerBio.PhoneNumber.Length < 9)
                 {
-                    Console.WriteLine("Za krotki ten numer sluchaj...");
+                    Console.WriteLine("This phone number is too short (9 d`)...");
                     Console.WriteLine("");
-                    Console.Write("NUMER TELEFONU: ");
+                    Console.Write("PHONE NUMBER: ");
                 }
                 else if (playerBio.PhoneNumber.Length == 9)
                 {
@@ -87,7 +96,7 @@ namespace ProgramStudent
                 }
                 else
                 {
-                    Console.WriteLine("Wiesz moze jak wyglada numer telefonu?");
+                    Console.WriteLine("Do you know how phone number looks");
                 }
             }
             Console.WriteLine("");
@@ -197,7 +206,7 @@ namespace ProgramStudent
             {
                 for (int i = 0; i <= text[j].Length - 1; i++)
                 {
-                    Thread.Sleep(150);
+                    Thread.Sleep(70);
                     Console.Write(text[j][i]);
                     if (Console.KeyAvailable)
                     {
@@ -218,7 +227,7 @@ namespace ProgramStudent
                     }
                 }
 
-                Thread.Sleep(1500);
+                Thread.Sleep(150);
                 var position = Console.GetCursorPosition();
                 Console.SetCursorPosition(position.Left + 15, position.Top + 10);
             }
