@@ -1,0 +1,14 @@
+var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+
+            var json = JsonConvert.SerializeObject(eventt, settings);
+
+            File.Delete(fileName);
+            File.WriteAllText(fileName, json);
+
+
+            string newJson = File.ReadAllText(fileName);
+
+            Event newEvent = new Event("", "", null);//JsonConvert.DeserializeObject<Event>(newJson);
+            newEvent = JsonConvert.DeserializeObject<Event>(newJson, settings);
+
+            newEvent.Occur();

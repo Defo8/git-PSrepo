@@ -1,0 +1,15 @@
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\obj\Debug\netcoreapp3.1\ProgramStudent.csproj.AssemblyReference.cache
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\obj\Debug\netcoreapp3.1\ProgramStudent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\obj\Debug\netcoreapp3.1\ProgramStudent.AssemblyInfoInputs.cache
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\obj\Debug\netcoreapp3.1\ProgramStudent.AssemblyInfo.cs
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\obj\Debug\netcoreapp3.1\ProgramStudent.csproj.CoreCompileInputs.cache
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\bin\Debug\netcoreapp3.1\ProgramStudent.exe
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\bin\Debug\netcoreapp3.1\ProgramStudent.deps.json
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\bin\Debug\netcoreapp3.1\ProgramStudent.runtimeconfig.json
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\bin\Debug\netcoreapp3.1\ProgramStudent.runtimeconfig.dev.json
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\bin\Debug\netcoreapp3.1\ProgramStudent.dll
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\bin\Debug\netcoreapp3.1\ProgramStudent.pdb
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\obj\Debug\netcoreapp3.1\ProgramStudent.dll
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\obj\Debug\netcoreapp3.1\ProgramStudent.pdb
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\obj\Debug\netcoreapp3.1\ProgramStudent.genruntimeconfig.cache
+C:\Users\Defo\source\repos\ProgramStudent\ProgramStudent\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

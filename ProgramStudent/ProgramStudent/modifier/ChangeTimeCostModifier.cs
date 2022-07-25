@@ -1,0 +1,7 @@
+﻿namespace ProgramStudent
+{
+    class ChangeTimeCostModifier
+    {
+
+    }
+}
