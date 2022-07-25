@@ -30,14 +30,14 @@ namespace ProgramStudent
 
             List<string> texts = new List<string>
             {
-                "Oh! Witam! ",
-                "Przepraszam cie, nie zauwazylem ze ktos wszedl...\n",
-                "Ajajaaja... Mamy dzisiaj istne urwanie glowy \n",
-                "Jestes tutaj aby zlozyc wniosek o przyjecie na studia, tak? \n",
-                "SWIETNIE!\n",
+                "Oh! HELLO! ",
+                "I'm so sorry, I didn't see ypu there...\n",
+                "Aaay... We have a lot of work today \n",
+                "Are you here to submit documents? \n",
+                "GREAT!!!!\n",
                 "...\n",
                 "Ekhem...\n",
-                "jesli tak to siadaj, mamy troche papierow do uzupelnienia:\n"
+                "If you say so, sit. We have some things to do:\n"
             };
 
             foreach (string line in texts)
@@ -52,19 +52,19 @@ namespace ProgramStudent
             }
 
             PlayerBio playerBio = new PlayerBio();
-            Console.Write("IMIE: ");
+            Console.Write("NAME: ");
             playerBio.CharacterName = Console.ReadLine();
             Console.WriteLine("");
-            Console.Write("NAZWISKO: ");
+            Console.Write("SURRNAME: ");
             playerBio.CharacterSurrname = Console.ReadLine();
             Console.WriteLine("");
-            Console.Write("MIEJSCE URODZENIA: ");
+            Console.Write("PLAE OF BIRTH: ");
             playerBio.City = Console.ReadLine();
             Console.WriteLine("");
-            Console.Write("ULICA: ");
+            Console.Write("STREET ADRESS: ");
             playerBio.Street = Console.ReadLine();
             Console.WriteLine("");
-            Console.Write("NUMER TELEFONU: ");
+            Console.Write("PHONE NUMBER: ");
 
             while (true)
             {                             
@@ -103,29 +103,29 @@ namespace ProgramStudent
             Console.Write("Email: ");
             playerBio.Email = Console.ReadLine();
             Console.WriteLine("");
-            Console.Write("WYDZIAL: ");
+            Console.Write("FACULTY: ");
             playerBio.Faculty = Console.ReadLine();
             Console.WriteLine("");
-            Console.Write("KIERUNEK: ");
+            Console.Write("FIELD OF STUDY: ");
             playerBio.FieldOfstudy = Console.ReadLine();
 
             playerBio.ShowPlayerBio();
 
-            Console.WriteLine("CZY NA PEWNO WSZYSTKO DOBRZE WPISALES? NIE BEDZIESZ MOGL TEGO POZNIEJ ZMIENIC: TAK/NIE \n");
+            Console.WriteLine("ARE YOU SURE? YOU WON'T CHANGE IT: YESK/NO \n");
             string ans = Console.ReadLine();
 
             while (true)
             {
-                if (ans == "TAK")
+                if (ans == "YES")
                 {
-                    string text1 = "\nDobrze wiec! " + playerBio.CharacterName + "... Witamy na uczelni!";
+                    string text1 = "\nGood to know! " + playerBio.CharacterName + "... Welcom in Colleage!";
                     foreach (char c in text1)
                     {
                         Thread.Sleep(50);
                         Console.Write(c);
                     }
                     Thread.Sleep(750);
-                    string initt = "\n[ROZPOCZYNAM GRE]";
+                    string initt = "\n[STARTING THE GAME]";
                     foreach (char c in initt)
                     {
                         Thread.Sleep(50);
@@ -139,13 +139,13 @@ namespace ProgramStudent
                 }
                 else if (ans == "NIE")
                 {
-                    Console.WriteLine("Ah... To moze sprobuj za rok co?");
+                    Console.WriteLine("Ah... Maybe should you try next time another year...? ");
 
                     return new PlayerBio();
                 }
                 else
                 {
-                    Console.WriteLine("Wpisz o to o co cie prosza...");
+                    Console.WriteLine("Please... type what they are demanding from you");
                 }
             }
         }
