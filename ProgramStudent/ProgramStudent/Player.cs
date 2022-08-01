@@ -15,28 +15,34 @@ namespace ProgramStudent
         public int KnowledgePoints { get; set; }
         public List<IModify> ActiveModifers { get; set; } = new();
         public PlayerBio PlayerInfo { get; set; }
-        public List<ILocation> Locations { get; set; }
+        public List<ILocation> Locations { get; set; } 
         public List<INPC> KnownNPC { get; set; } = new();
+        public bool NewPlayer { get; set; } = true;
         public Player()
         {
-            PlayerInfo = new PlayerBio();
-            
-            Statistics = new List<Needmant>
-            {
-                new Food(),
-                new Energy(),
-                new Sleep(),
-                new Company(),
-                new MentalHealth()
-            };
 
-            KnownNPC.Add(new Roommate());
-            Locations = new List<ILocation> { new DormRoom(), new University(), new Shop() };
-            CurrentLocation = Locations[0];
-            TimeConsequence = new TimeConsequence(Time.Calendar);
-          
-            Money = 500;
-            KnowledgePoints = 0;
+            if(NewPlayer)
+            {
+                PlayerInfo = new PlayerBio();
+
+                Statistics = new List<Needmant>
+                {
+                    new Food(),
+                    new Energy(),
+                    new Sleep(),
+                    new Company(),
+                    new MentalHealth()
+                };
+
+                KnownNPC.Add(new Roommate());
+                Locations = new List<ILocation> { new DormRoom(), new University(), new Shop(), };
+                CurrentLocation = Locations[0];
+                TimeConsequence = new TimeConsequence(Time.Calendar);
+
+                Money = 500;
+                KnowledgePoints = 0;
+                NewPlayer = false;
+            }
         }
         public void ChangeLocation()
         {

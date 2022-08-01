@@ -50,9 +50,9 @@ namespace ProgramStudent
         public void LoadGame()
         {
 
-            DirectoryInfo d = new DirectoryInfo(SAVE); //Assuming Test is your Folder
+            DirectoryInfo d = new DirectoryInfo(SAVE); 
 
-            FileInfo[] Files = d.GetFiles("*.json"); //Getting Text files
+            FileInfo[] Files = d.GetFiles("*.json"); 
 
             Console.Clear();
 
@@ -63,7 +63,7 @@ namespace ProgramStudent
                 Console.WriteLine(file.Name);
             }
 
-            Console.WriteLine("\n Whiche of them do you want to load?: ");
+            Console.WriteLine("\n Which of them do you want to load?: ");
             string ans = Console.ReadLine();
             var option = new JsonSerializerSettings()
             {
@@ -89,7 +89,7 @@ namespace ProgramStudent
             }
             catch (Exception e)
             {
-                Console.WriteLine("Ekhem... There no file like this, try again: " + e.Message);
+                Console.WriteLine("Ekhem... There is no file like this, try again: " + e.Message);
                 Thread.Sleep(5000);
             }
         }
@@ -103,22 +103,22 @@ namespace ProgramStudent
         public void Quit()
         {
             Console.Clear();
-            Console.WriteLine("Czy na pewno chcesz wyjsc z gry?");
-            Console.WriteLine("TAK czy NIE?!");
+            Console.WriteLine("Are you sure you want to leave?");
+            Console.WriteLine("YES OR NO");
             string ans = Console.ReadLine();
             while (true)
             {
-                if (ans == "TAK")
+                if (ans == "YES")
                 {
                     Environment.Exit(0);
                 }
-                else if (ans == "NIE")
+                else if (ans == "NO")
                 {
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Wpisz TAK aby wyjsc z gry lub NIE aby wrocic... Prosze >:/");
+                    Console.WriteLine("Type YES if you want to leave and NO if you want to stay... Damn...");
                     ans = Console.ReadLine();
                 }
             }

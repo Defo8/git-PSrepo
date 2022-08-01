@@ -58,7 +58,7 @@ namespace ProgramStudent
             Console.Write("SURRNAME: ");
             playerBio.CharacterSurrname = Console.ReadLine();
             Console.WriteLine("");
-            Console.Write("PLAE OF BIRTH: ");
+            Console.Write("PLACE OF BIRTH: ");
             playerBio.City = Console.ReadLine();
             Console.WriteLine("");
             Console.Write("STREET ADRESS: ");
@@ -111,14 +111,14 @@ namespace ProgramStudent
 
             playerBio.ShowPlayerBio();
 
-            Console.WriteLine("ARE YOU SURE? YOU WON'T CHANGE IT: YESK/NO \n");
+            Console.WriteLine("ARE YOU SURE? YOU WON'T CHANGE IT AFTER: YES/NO \n");
             string ans = Console.ReadLine();
 
             while (true)
             {
                 if (ans == "YES")
                 {
-                    string text1 = "\nGood to know! " + playerBio.CharacterName + "... Welcom in Colleage!";
+                    string text1 = "\nGood to know! " + playerBio.CharacterName + "... Welcome in Univeristy!";
                     foreach (char c in text1)
                     {
                         Thread.Sleep(50);
