@@ -13,7 +13,7 @@ namespace ProgramStudent
         {
             FoodInList = new List<FoodProduct>
             {
-                new FoodProduct("Jogurt", 3, new DateTime(2060, 12,1), 10)
+                new FoodProduct("Yoghurt", 3, new DateTime(2060, 12,1), 10)
             };
         }
 
@@ -31,13 +31,13 @@ namespace ProgramStudent
                 player.Inventory.Clear();
 
                 Console.Clear();
-                Console.WriteLine("== Akademik: Lodowka ==");
-                Console.WriteLine("1. Jedz");
-                Console.WriteLine("0. Powrot");
-                Console.WriteLine("\nSTATY:");
+                Console.WriteLine("== Dorm: Fridge ==");
+                Console.WriteLine("1. Food");
+                Console.WriteLine("0. Back");
+                Console.WriteLine("\nSTATS:");
                 player.ShowPlayerInfo();
                 Console.WriteLine();
-                Console.WriteLine("Wybierz co chcesz zrobic (numer): ");
+                Console.WriteLine("\nWhat you want to do? (Number) : ");
 
                 string ans = Console.ReadLine();
 
@@ -46,10 +46,10 @@ namespace ProgramStudent
                     Console.Clear();
                     if (FoodInList.Count > 0)
                     {
-                        Console.WriteLine("Jedzenie w lodowce: ");
+                        Console.WriteLine("Food in the fridge: ");
                         DisplayFoodInList();
 
-                        Console.WriteLine("\nWybierz co chesz zjesc: ");
+                        Console.WriteLine("\nWhat you want to do? (Number): ");
                         string anss = Console.ReadLine();
                         FoodProduct food;
                         while (true)
@@ -61,8 +61,8 @@ namespace ProgramStudent
                             }
                             catch
                             {
-                                Console.WriteLine("Nie takiego jedzenia w twojej lodowce :<");
-                                Console.WriteLine("\nWybierz co chesz zjesc: ");
+                                Console.WriteLine("There is no this kind of food in the fridge :<");
+                                Console.WriteLine("\nWhat you want to do? (Number): ");
                                 anss = Console.ReadLine();
                             }
                         }
@@ -77,12 +77,12 @@ namespace ProgramStudent
                         }
                         else
                         {
-                            Console.WriteLine("Nie ma takiego jedzenia");
+                            Console.WriteLine("There is no food like that");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Nie masz nic w lodówce, kliknij aby powrócić");
+                        Console.WriteLine("No food bruh, click something to go on");
                         Console.ReadKey();
                     }
                 }
@@ -92,7 +92,7 @@ namespace ProgramStudent
                 }
                 else
                 {
-                    Console.WriteLine("Wpisz ktorys z podanych numerow");
+                    Console.WriteLine("Choose the number: ");
                     Thread.Sleep(1500);
                 }
             }
@@ -102,8 +102,8 @@ namespace ProgramStudent
         {
             foreach (var product in FoodInList)
             {
-                Console.WriteLine(product.Name + ", Wartosc odrzywcza: " + product.FoodValue
-                                               + ", Data waznosci: " + product.ValidDate);
+                Console.WriteLine(product.Name + ", Food points: " + product.FoodValue
+                                               + ", Valid date: " + product.ValidDate);
             }
         }
     }
