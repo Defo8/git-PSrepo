@@ -26,8 +26,7 @@ namespace ProgramStudent
             {
                 player.Statistics.RemoveAt(i);
             }
-            player.Statistics.Insert(0, player.Statistics[2]);
-            player.Statistics.Insert(1, player.Statistics[2]);
+            
 
             while (true)
             {
