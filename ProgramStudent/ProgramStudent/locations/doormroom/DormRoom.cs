@@ -22,7 +22,13 @@ namespace ProgramStudent
 
         public void Hub(Player player)
         {
-           
+            for(int i=0; i<5; i++)
+            {
+                player.Statistics.RemoveAt(i);
+            }
+            player.Statistics.Insert(0, player.Statistics[2]);
+            player.Statistics.Insert(1, player.Statistics[2]);
+
             while (true)
             {
 

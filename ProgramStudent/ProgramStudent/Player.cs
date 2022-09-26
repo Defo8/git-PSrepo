@@ -128,7 +128,7 @@ namespace ProgramStudent
                 {                   
                     Console.Write("█");
                 }
-
+                Console.Write(stat.CurrentValue);
                 Console.WriteLine("\n");
             }
 
@@ -144,7 +144,6 @@ namespace ProgramStudent
                 }
             }
           
-            //Console.WriteLine(TimeConsequence.LastChangeCalendar);
         }
         public void AddModifier(IModify modifier)
         {

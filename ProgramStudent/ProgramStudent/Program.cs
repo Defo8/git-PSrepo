@@ -21,22 +21,11 @@ namespace ProgramStudent
         static void Main(string[] args)
         {
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            ShowWindow(ThisConsole, MAXIMIZE);
-
-
-
-            DateTime t1 = new DateTime(2022, 1, 1, 1, 0, 0);
-            DateTime t2 = new DateTime(2022, 1, 1, 2, 0, 0);
-            TimeSpan time = t2 - t1;
-                        
+            ShowWindow(ThisConsole, MAXIMIZE);        
+            
             Game game = new Game();
-
-
-
-             HUD.MenuIntro();
+             //HUD.MenuIntro();
              game.Menu();
-
-
 
         }
     }   

@@ -1,1 +1,235 @@
-{"$type":"ProgramStudent.Player, ProgramStudent","Statistics":[{"$type":"ProgramStudent.Food, ProgramStudent","Modifier":0,"MaxValue":100,"CurrentValue":73,"Name":"Food","TokenOfZero":0},{"$type":"ProgramStudent.Energy, ProgramStudent","Modifier":0,"MaxValue":100,"CurrentValue":32,"Name":"Energy","TokenOfZero":0},{"$type":"ProgramStudent.Sleep, ProgramStudent","Modifier":0,"MaxValue":100,"CurrentValue":73,"Name":"Sleep","TokenOfZero":0},{"$type":"ProgramStudent.Company, ProgramStudent","Modifier":0,"MaxValue":100,"CurrentValue":88,"Name":"Company","TokenOfZero":0},{"$type":"ProgramStudent.MentalHealth, ProgramStudent","Modifier":0,"MaxValue":100,"CurrentValue":100,"Name":"MentalHealth","TokenOfZero":0}],"Inventory":[],"CurrentLocation":{"$type":"ProgramStudent.Shop, ProgramStudent","Name":"Shop","IsActive":true,"ListOfFood":[{"$type":"ProgramStudent.FoodProduct, ProgramStudent","Name":"Yoghurt","Cost":3.0,"ValidDate":"2054-11-23T00:00:00","FoodValue":10},{"$type":"ProgramStudent.FoodProduct, ProgramStudent","Name":"Bread","Cost":2.0,"ValidDate":"2054-11-23T00:00:00","FoodValue":20},{"$type":"ProgramStudent.FoodProduct, ProgramStudent","Name":"Banana","Cost":2.0,"ValidDate":"2054-11-23T00:00:00","FoodValue":8},{"$type":"ProgramStudent.FoodProduct, ProgramStudent","Name":"Cheese","Cost":5.0,"ValidDate":"2054-11-23T00:00:00","FoodValue":25}]},"Time":{"$type":"ProgramStudent.Time, ProgramStudent","Calendar":"2054-10-02T03:45:00","EndOfSemester":"2055-01-14T16:00:00"},"TimeConsequence":{"$type":"ProgramStudent.TimeConsequence, ProgramStudent","LastChangeCalendar":"2054-10-02T03:30:00","LastYear":2054,"LastMonth":10,"LastDay":1,"ListOfEvent":null,"Calendar":"2054-10-01T09:00:00","EndOfSemester":"2055-01-14T16:00:00"},"Money":493.0,"KnowledgePoints":115,"ActiveModifers":[],"PlayerInfo":{"$type":"ProgramStudent.PlayerBio, ProgramStudent","CharacterName":"Anita","CharacterSurrname":"Biela","City":"Rzeszow","Street":"Jazowa 51/19","PhoneNumber":"534581580","Email":"anitabiela750@gmail.com","Faculty":"Zbieranie gowna","FieldOfstudy":"Zbieranie gowna"},"Locations":[{"$type":"ProgramStudent.DormRoom, ProgramStudent","Name":"Dorm","IsActive":true,"IsRoommateIn":true,"Fridge":{"$type":"ProgramStudent.Fridge, ProgramStudent","FoodInList":[]},"Laptop":{"$type":"ProgramStudent.Laptop, ProgramStudent","IsOperable":true,"NoteList":[{"$type":"ProgramStudent.FastNote, ProgramStudent","Name":"Notatka","KnowledgeValue":30,"LearnProgress":0,"MakeingProgress":100},{"$type":"ProgramStudent.FastNote, ProgramStudent","Name":"Adam's Notes","KnowledgeValue":25,"LearnProgress":0,"MakeingProgress":100},{"$type":"ProgramStudent.FastNote, ProgramStudent","Name":"Notatka","KnowledgeValue":30,"LearnProgress":0,"MakeingProgress":100},{"$type":"ProgramStudent.FastNote, ProgramStudent","Name":"Adam's Notes","KnowledgeValue":25,"LearnProgress":0,"MakeingProgress":100},{"$type":"ProgramStudent.FastNote, ProgramStudent","Name":"Notatka","KnowledgeValue":30,"LearnProgress":0,"MakeingProgress":100},{"$type":"ProgramStudent.FastNote, ProgramStudent","Name":"Adam's Notes","KnowledgeValue":25,"LearnProgress":0,"MakeingProgress":100},{"$type":"ProgramStudent.LongerNote, ProgramStudent","Name":"Rrrr","KnowledgeValue":70,"LearnProgress":0,"MakeingProgress":0},{"$type":"ProgramStudent.FastNote, ProgramStudent","Name":"Adam's Notes","KnowledgeValue":25,"LearnProgress":0,"MakeingProgress":100}]}},{"$type":"ProgramStudent.University, ProgramStudent","Name":null,"IsActive":false},{"$type":"ProgramStudent.Shop, ProgramStudent","Name":"Shop","IsActive":true,"ListOfFood":[{"$type":"ProgramStudent.FoodProduct, ProgramStudent","Name":"Yoghurt","Cost":3.0,"ValidDate":"2054-11-23T00:00:00","FoodValue":10},{"$type":"ProgramStudent.FoodProduct, ProgramStudent","Name":"Bread","Cost":2.0,"ValidDate":"2054-11-23T00:00:00","FoodValue":20},{"$type":"ProgramStudent.FoodProduct, ProgramStudent","Name":"Banana","Cost":2.0,"ValidDate":"2054-11-23T00:00:00","FoodValue":8},{"$type":"ProgramStudent.FoodProduct, ProgramStudent","Name":"Cheese","Cost":5.0,"ValidDate":"2054-11-23T00:00:00","FoodValue":25}]}],"KnownNPC":[{"$type":"ProgramStudent.Roommate, ProgramStudent","Name":"Adam","FriendPoints":10}],"NewPlayer":false}
+{
+  "$type": "ProgramStudent.Player, ProgramStudent",
+  "Statistics": [
+    {
+      "$type": "ProgramStudent.Food, ProgramStudent",
+      "Modifier": 0,
+      "MaxValue": 100,
+      "CurrentValue": 73,
+      "Name": "Food",
+      "TokenOfZero": 0
+    },
+    {
+      "$type": "ProgramStudent.Energy, ProgramStudent",
+      "Modifier": 0,
+      "MaxValue": 100,
+      "CurrentValue": 32,
+      "Name": "Energy",
+      "TokenOfZero": 0
+    },
+    {
+      "$type": "ProgramStudent.Sleep, ProgramStudent",
+      "Modifier": 0,
+      "MaxValue": 100,
+      "CurrentValue": 73,
+      "Name": "Sleep",
+      "TokenOfZero": 0
+    },
+    {
+      "$type": "ProgramStudent.Company, ProgramStudent",
+      "Modifier": 0,
+      "MaxValue": 100,
+      "CurrentValue": 88,
+      "Name": "Company",
+      "TokenOfZero": 0
+    },
+    {
+      "$type": "ProgramStudent.MentalHealth, ProgramStudent",
+      "Modifier": 0,
+      "MaxValue": 100,
+      "CurrentValue": 100,
+      "Name": "MentalHealth",
+      "TokenOfZero": 0
+    }
+  ],
+  "Inventory": [
+  ],
+  "CurrentLocation": {
+    "$type": "ProgramStudent.Shop, ProgramStudent",
+    "Name": "Shop",
+    "IsActive": true,
+    "ListOfFood": [
+      {
+        "$type": "ProgramStudent.FoodProduct, ProgramStudent",
+        "Name": "Yoghurt",
+        "Cost": 3.0,
+        "ValidDate": "2054-11-23T00:00:00",
+        "FoodValue": 10
+      },
+      {
+        "$type": "ProgramStudent.FoodProduct, ProgramStudent",
+        "Name": "Bread",
+        "Cost": 2.0,
+        "ValidDate": "2054-11-23T00:00:00",
+        "FoodValue": 20
+      },
+      {
+        "$type": "ProgramStudent.FoodProduct, ProgramStudent",
+        "Name": "Banana",
+        "Cost": 2.0,
+        "ValidDate": "2054-11-23T00:00:00",
+        "FoodValue": 8
+      },
+      {
+        "$type": "ProgramStudent.FoodProduct, ProgramStudent",
+        "Name": "Cheese",
+        "Cost": 5.0,
+        "ValidDate": "2054-11-23T00:00:00",
+        "FoodValue": 25
+      }
+    ]
+  },
+  "Time": {
+    "$type": "ProgramStudent.Time, ProgramStudent",
+    "Calendar": "2054-10-02T03:45:00",
+    "EndOfSemester": "2055-01-14T16:00:00"
+  },
+  "TimeConsequence": {
+    "$type": "ProgramStudent.TimeConsequence, ProgramStudent",
+    "LastChangeCalendar": "2054-10-02T03:30:00",
+    "LastYear": 2054,
+    "LastMonth": 10,
+    "LastDay": 1,
+    "ListOfEvent": null,
+    "Calendar": "2054-10-01T09:00:00",
+    "EndOfSemester": "2055-01-14T16:00:00"
+  },
+  "Money": 493.0,
+  "KnowledgePoints": 115,
+  "ActiveModifers": [
+  ],
+  "PlayerInfo": {
+    "$type": "ProgramStudent.PlayerBio, ProgramStudent",
+    "CharacterName": "Anita",
+    "CharacterSurrname": "Biela",
+    "City": "Rzeszow",
+    "Street": "Jazowa 51/19",
+    "PhoneNumber": "534581580",
+    "Email": "anitabiela750@gmail.com",
+    "Faculty": "Zbieranie gowna",
+    "FieldOfstudy": "Zbieranie gowna"
+  },
+  "Locations": [
+    {
+      "$type": "ProgramStudent.DormRoom, ProgramStudent",
+      "Name": "Dorm",
+      "IsActive": true,
+      "IsRoommateIn": true,
+      "Fridge": {
+        "$type": "ProgramStudent.Fridge, ProgramStudent",
+        "FoodInList": [
+        ]
+      },
+      "Laptop": {
+        "$type": "ProgramStudent.Laptop, ProgramStudent",
+        "IsOperable": true,
+        "NoteList": [
+          {
+            "$type": "ProgramStudent.FastNote, ProgramStudent",
+            "Name": "Notatka",
+            "KnowledgeValue": 30,
+            "LearnProgress": 0,
+            "MakeingProgress": 100
+          },
+          {
+            "$type": "ProgramStudent.FastNote, ProgramStudent",
+            "Name": "Adam's Notes",
+            "KnowledgeValue": 25,
+            "LearnProgress": 0,
+            "MakeingProgress": 100
+          },
+          {
+            "$type": "ProgramStudent.FastNote, ProgramStudent",
+            "Name": "Notatka",
+            "KnowledgeValue": 30,
+            "LearnProgress": 0,
+            "MakeingProgress": 100
+          },
+          {
+            "$type": "ProgramStudent.FastNote, ProgramStudent",
+            "Name": "Adam's Notes",
+            "KnowledgeValue": 25,
+            "LearnProgress": 0,
+            "MakeingProgress": 100
+          },
+          {
+            "$type": "ProgramStudent.FastNote, ProgramStudent",
+            "Name": "Notatka",
+            "KnowledgeValue": 30,
+            "LearnProgress": 0,
+            "MakeingProgress": 100
+          },
+          {
+            "$type": "ProgramStudent.FastNote, ProgramStudent",
+            "Name": "Adam's Notes",
+            "KnowledgeValue": 25,
+            "LearnProgress": 0,
+            "MakeingProgress": 100
+          },
+          {
+            "$type": "ProgramStudent.LongerNote, ProgramStudent",
+            "Name": "Rrrr",
+            "KnowledgeValue": 70,
+            "LearnProgress": 0,
+            "MakeingProgress": 0
+          },
+          {
+            "$type": "ProgramStudent.FastNote, ProgramStudent",
+            "Name": "Adam's Notes",
+            "KnowledgeValue": 25,
+            "LearnProgress": 0,
+            "MakeingProgress": 100
+          }
+        ]
+      }
+    },
+    {
+      "$type": "ProgramStudent.University, ProgramStudent",
+      "Name": null,
+      "IsActive": false
+    },
+    {
+      "$type": "ProgramStudent.Shop, ProgramStudent",
+      "Name": "Shop",
+      "IsActive": true,
+      "ListOfFood": [
+        {
+          "$type": "ProgramStudent.FoodProduct, ProgramStudent",
+          "Name": "Yoghurt",
+          "Cost": 3.0,
+          "ValidDate": "2054-11-23T00:00:00",
+          "FoodValue": 10
+        },
+        {
+          "$type": "ProgramStudent.FoodProduct, ProgramStudent",
+          "Name": "Bread",
+          "Cost": 2.0,
+          "ValidDate": "2054-11-23T00:00:00",
+          "FoodValue": 20
+        },
+        {
+          "$type": "ProgramStudent.FoodProduct, ProgramStudent",
+          "Name": "Banana",
+          "Cost": 2.0,
+          "ValidDate": "2054-11-23T00:00:00",
+          "FoodValue": 8
+        },
+        {
+          "$type": "ProgramStudent.FoodProduct, ProgramStudent",
+          "Name": "Cheese",
+          "Cost": 5.0,
+          "ValidDate": "2054-11-23T00:00:00",
+          "FoodValue": 25
+        }
+      ]
+    }
+  ],
+  "KnownNPC": [
+    {
+      "$type": "ProgramStudent.Roommate, ProgramStudent",
+      "Name": "Adam",
+      "FriendPoints": 10
+    }
+  ],
+  "NewPlayer": false
+}

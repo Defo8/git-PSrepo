@@ -28,7 +28,7 @@ namespace ProgramStudent
             ART = projectDirectory + @"\resources\ASCII\";
             SAVE = projectDirectory + @"\saves\";
             IsSaveLoaded = false;
-            player = new Player(); // DWA RAZY PRZYPISUJE
+            //player = new Player(); // DWA RAZY PRZYPISUJE
         }
         public void SaveGame()
         {
@@ -70,12 +70,6 @@ namespace ProgramStudent
                 TypeNameHandling = TypeNameHandling.Objects,
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             };
-
-            List<Needmant> outofdate = new List<Needmant>();
-            foreach (Needmant ned in player.Statistics)
-            {
-                outofdate.Add(ned);
-            }
 
             try
             {
@@ -128,7 +122,7 @@ namespace ProgramStudent
         {
             Console.Clear();
             PlayerBio bio = HUD.IntroNewGame();
-            player.PlayerInfo = bio;
+            //player.PlayerInfo = bio;
             IsSaveLoaded = true;
             StartGame();
         }
@@ -139,7 +133,7 @@ namespace ProgramStudent
             {
                 Console.Clear();
                 PlayerBio bio = HUD.IntroNewGame();
-                player.PlayerInfo = bio;
+                //player.PlayerInfo = bio;
                 IsSaveLoaded = true;
                 player.Locations[0].Hub(player);
             }
