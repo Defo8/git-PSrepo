@@ -123,21 +123,27 @@ namespace ProgramStudent
         {
             foreach (Needmant stat in Statistics)
             {
-                Console.WriteLine(stat.Name);
-                Console.WriteLine("MaxValue: " + stat.MaxValue);
-                Console.WriteLine("CurrentValue: " + stat.CurrentValue);
-                //PlayerInfo.ShowPlayerBio();
+                Console.Write(stat.Name+ "\n");
+                for(int i=0; i<stat.CurrentValue/10; i++)
+                {                   
+                    Console.Write("█");
+                }
+
+                Console.WriteLine("\n");
             }
 
             Console.WriteLine("Knwoledge Points: " + KnowledgePoints);
             Console.WriteLine("Money: " + Money);
-
-            Console.WriteLine("\n\n Modifiers: ");
-            foreach(IModify mod in ActiveModifers)
+                    
+            if(ActiveModifers.Count > 0)
             {
-                Console.WriteLine(mod.Name +"\n"+mod.Description);
+                Console.WriteLine("\n\n Modifiers: ");
+                foreach (IModify mod in ActiveModifers)
+                {
+                    Console.WriteLine(mod.Name + "\n" + mod.Description);
+                }
             }
-
+          
             Console.WriteLine(TimeConsequence.LastChangeCalendar);
         }
         public void AddModifier(IModify modifier)
