@@ -144,7 +144,7 @@ namespace ProgramStudent
                 }
             }
           
-            Console.WriteLine(TimeConsequence.LastChangeCalendar);
+            //Console.WriteLine(TimeConsequence.LastChangeCalendar);
         }
         public void AddModifier(IModify modifier)
         {
