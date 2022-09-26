@@ -158,7 +158,7 @@ namespace ProgramStudent
                 Console.Clear();
                 Console.WriteLine(File.ReadAllText(ART + "menu.txt"));
                 Console.Title = "PROGRAM:   S  .   T   .   U   .   D   .   E   .   N   .   T";
-                Console.WriteLine("What you want hmm...? - , - : START NEW GAME, START, SAVE GAME, LOAD GAME, CREDITS, QUIT: ");
+                Console.WriteLine("What you want hmm...? - , - : START NEW GAME, CONTINUE, SAVE GAME, LOAD GAME, CREDITS, QUIT: ");
                 Console.WriteLine();
                 string ans = Console.ReadLine();
                 switch (ans)
@@ -166,7 +166,7 @@ namespace ProgramStudent
                     case "START NEW GAME":
                         StartNewGame();
                         break;
-                    case "START":
+                    case "CONTINUE":
                         StartGame();
                         break;
                     case "SAVE GAME":
