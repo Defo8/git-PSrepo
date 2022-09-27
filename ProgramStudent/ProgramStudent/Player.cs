@@ -119,6 +119,49 @@ namespace ProgramStudent
                 Console.WriteLine("ERROR");
             }
         }
+        public void ChangeStatisticsCurrentValue(Type needmant, int amount)
+        {
+            if (needmant == typeof(Food))
+            {
+                Statistics.Find(x => x.Name == "Food").Increase(amount);
+;
+                if (Statistics.Find(x => x.Name == "Food").CurrentValue > Statistics.Find(x => x.Name == "Food").MaxValue)
+                    Statistics.Find(x => x.Name == "Food").CurrentValue = Statistics.Find(x => x.Name == "Food").MaxValue;
+            }
+            else if (needmant == typeof(Energy))
+            {
+                Statistics.Find(x => x.Name == "Energy").Increase(amount);
+                
+                if (Statistics.Find(x => x.Name == "Energy").CurrentValue > Statistics.Find(x => x.Name == "Energy").MaxValue)
+                    Statistics.Find(x => x.Name == "Energy").CurrentValue = Statistics.Find(x => x.Name == "Energy").MaxValue;
+            }
+            else if (needmant == typeof(Sleep))
+            {
+                Statistics.Find(x => x.Name == "Sleep").Increase(amount);
+
+                if (Statistics.Find(x => x.Name == "Sleep").CurrentValue > Statistics.Find(x => x.Name == "Sleep").MaxValue)
+                    Statistics.Find(x => x.Name == "Sleep").CurrentValue = Statistics.Find(x => x.Name == "Sleep").MaxValue;
+            }
+            else if (needmant == typeof(Company))
+            {
+                Statistics.Find(x => x.Name == "Company").Increase(amount);
+
+                if (Statistics.Find(x => x.Name == "Company").CurrentValue > Statistics.Find(x => x.Name == "Company").MaxValue)
+                    Statistics.Find(x => x.Name == "Company").CurrentValue = Statistics.Find(x => x.Name == "Company").MaxValue;
+            }
+            else if (needmant == typeof(MentalHealth))
+            {
+                Statistics.Find(x => x.Name == "MentalHealth").Increase(amount);
+
+                if (Statistics.Find(x => x.Name == "MentalHealth").CurrentValue > Statistics.Find(x => x.Name == "MentalHealth").MaxValue)
+                    Statistics.Find(x => x.Name == "MentalHealth").CurrentValue = Statistics.Find(x => x.Name == "MentalHealth").MaxValue;
+            }
+            else
+            {
+                Console.WriteLine("ERROR");
+            }
+        }
+
         public void ShowPlayerInfo()
         {
             foreach (Needmant stat in Statistics)

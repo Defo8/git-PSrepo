@@ -17,6 +17,8 @@ namespace ProgramStudent
         {
             if (CurrentValue + (amount + Modifier) > 100)
                 CurrentValue = MaxValue;
+            else if (CurrentValue + (amount + Modifier) < 0)
+                CurrentValue = 0;
             else
                 CurrentValue += amount + Modifier;
         }

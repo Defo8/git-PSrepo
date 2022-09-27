@@ -84,9 +84,9 @@ namespace ProgramStudent
                 }
                 player.Time.Calendar = player.Time.Calendar.AddMinutes(15);
                 player.TimeConsequence.UpdateIfNeeded(player);
-                player.Statistics[3].Increase(10);
-                player.Statistics[4].Increase(5);
-                
+                player.ChangeStatisticsCurrentValue(typeof(Company), 7);
+                player.ChangeStatisticsCurrentValue(typeof(MentalHealth), 5);
+
             }
             else
             {
@@ -127,15 +127,11 @@ namespace ProgramStudent
 
             if (h > 0)
             {
-                player.Statistics[1].Increase(EnergyGain);
-                player.Statistics[2].Increase(SleepGain);
+                player.ChangeStatisticsCurrentValue(typeof(Energy), EnergyGain);
+                player.ChangeStatisticsCurrentValue(typeof(Sleep), SleepGain);
                 player.Time.Calendar = player.Time.Calendar.AddHours(h);
                 player.TimeConsequence.UpdateIfNeeded(player);
-                if(player.Statistics[1].CurrentValue < 20 && player.Statistics[2].CurrentValue < 20)
-                {
-                    player.Statistics[1].Increase(EnergyGain);
-                    player.Statistics[2].Increase(SleepGain);
-                }
+                
                 Console.Clear();
 
                 string zzz = "Z Z Z Z Z z z z z. . .";

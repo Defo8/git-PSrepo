@@ -130,8 +130,8 @@ namespace ProgramStudent
             }
             player.Time.Calendar = player.Time.Calendar.AddMinutes(15);
             player.TimeConsequence.UpdateIfNeeded(player);
-            player.Statistics[3].Increase(5);
-            player.Statistics[4].Increase(3);
+            player.ChangeStatisticsCurrentValue(typeof(Company), 5);
+            player.ChangeStatisticsCurrentValue(typeof(MentalHealth), 3);
         }
 
         public void PlayGames(Player player)
@@ -167,8 +167,8 @@ namespace ProgramStudent
                 //if czy time < 1;
                 player.Time.Calendar = player.Time.Calendar.AddHours(time);
                 player.TimeConsequence.UpdateIfNeeded(player);
-                player.Statistics[3].Increase(5 * time);
-                player.Statistics[4].Increase(3 * time);
+                player.ChangeStatisticsCurrentValue(typeof(Company), 5 * time);
+                player.ChangeStatisticsCurrentValue(typeof(MentalHealth), 3 * time);
 
                 string chat = "*Playing...";
                 foreach (char t in chat)

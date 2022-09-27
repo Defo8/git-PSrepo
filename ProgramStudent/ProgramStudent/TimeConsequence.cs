@@ -37,12 +37,12 @@ namespace ProgramStudent
                     Thread.Sleep(2000);
                     for (int i = 0; i < rr/2; i++)
                     {
-                        player.Statistics[0].Decrease(rnd.Next(15));
-                        player.Statistics[1].Decrease(rnd.Next(15));
-                        player.Statistics[2].Decrease(rnd.Next(15));
-                        player.Statistics[3].Decrease(rnd.Next(8));
+                        player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(9));
+                        player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(9));
+                        player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(9));
+                        player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(9));
                         if (rnd.Next(100) > 70)
-                            player.Statistics[4].Decrease(3);
+                            player.ChangeStatisticsCurrentValue(typeof(MentalHealth), -rnd.Next(4));
                     }
 
                     foreach (Needmant stat in player.Statistics)

@@ -15,8 +15,10 @@ namespace ProgramStudent
 
         override public void Increase(int amount)
         {
-            if (CurrentValue + amount + Modifier > 100)
+            if (CurrentValue + (amount + Modifier) > 100)
                 CurrentValue = MaxValue;
+            else if (CurrentValue + (amount + Modifier) < 0)
+                CurrentValue = 0;
             else
                 CurrentValue += amount + Modifier;
         }
