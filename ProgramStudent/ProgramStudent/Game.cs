@@ -28,7 +28,7 @@ namespace ProgramStudent
             ART = projectDirectory + @"\resources\ASCII\";
             SAVE = projectDirectory + @"\saves\";
             IsSaveLoaded = false;
-            //player = new Player(); // DWA RAZY PRZYPISUJE
+            player = new Player(); // DWA RAZY PRZYPISUJE
         }
         public void SaveGame()
         {
@@ -121,9 +121,10 @@ namespace ProgramStudent
         public void StartNewGame()
         {
             Console.Clear();
-            PlayerBio bio = HUD.IntroNewGame();
+            //PlayerBio bio = HUD.IntroNewGame();
             //player.PlayerInfo = bio;
-            IsSaveLoaded = true;
+            //IsSaveLoaded = true;
+        
             StartGame();
         }
 
@@ -132,13 +133,18 @@ namespace ProgramStudent
             if(IsSaveLoaded == false)
             {
                 Console.Clear();
-                PlayerBio bio = HUD.IntroNewGame();
+                //PlayerBio bio = HUD.IntroNewGame(); //temporary off
                 //player.PlayerInfo = bio;
                 IsSaveLoaded = true;
                 player.Locations[0].Hub(player);
             }
             else
             {
+                for (int i = 0; i < 5; i++) // temp thing?: Problem with doubled needmants after loading saves 
+                {
+                    player.Statistics.RemoveAt(i);
+                }
+
                 player.Locations[0].Hub(player);
             }
                         
