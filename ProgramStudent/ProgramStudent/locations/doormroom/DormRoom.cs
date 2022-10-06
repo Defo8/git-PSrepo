@@ -117,12 +117,12 @@ namespace ProgramStudent
                 }
             }
 
-            int SleepGain = h * 23; // dodac do const 13
-            int EnergyGain = h * 23;
+            int SleepGain = h * 14; // add to const
+            int EnergyGain = h * 14;
 
             player.ShowPlayerInfo();
 
-            if (h > 0)
+            if(h > 0) // if h = 0, back to doormroom
             {
                 player.ChangeStatisticsCurrentValue(typeof(Energy), EnergyGain);
                 player.ChangeStatisticsCurrentValue(typeof(Sleep), SleepGain);
@@ -138,7 +138,8 @@ namespace ProgramStudent
                     Console.Write(c);
                     Thread.Sleep(10);
                 }       
-            }           
+            }
+            
         }
     }
 }

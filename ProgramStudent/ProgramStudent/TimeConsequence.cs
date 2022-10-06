@@ -33,7 +33,7 @@ namespace ProgramStudent
                 {
                     LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
                     Console.Clear();
-                    Console.WriteLine("REMEMBER! IF YOU STUDY YOU WILL PAS, IF YOU NOT YOU WON'T... :) ");
+                    Console.WriteLine("REMEMBER! IF YOU STUDY YOU WILL PASS, IF YOU NOT YOU WON'T... :) ");
                     Thread.Sleep(2000);
                     for (int i = 0; i < rr/2; i++)
                     {

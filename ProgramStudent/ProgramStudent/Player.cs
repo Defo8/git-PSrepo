@@ -161,7 +161,6 @@ namespace ProgramStudent
                 Console.WriteLine("ERROR");
             }
         }
-
         public void ShowPlayerInfo()
         {
             foreach (Needmant stat in Statistics)
