@@ -8,5 +8,6 @@ namespace ProgramStudent
 {
     interface IHaveID
     {
+        public int ID { get; set; }
     }
 }

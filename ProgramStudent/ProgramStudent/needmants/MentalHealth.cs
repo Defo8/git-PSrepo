@@ -11,6 +11,7 @@ namespace ProgramStudent
             CurrentValue = 100;
             Name = "MentalHealth";
             Modifier = 0;
+            ID = 5;
         }
 
         override public void Increase(int amount)

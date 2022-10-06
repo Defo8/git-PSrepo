@@ -1,7 +1,8 @@
 ﻿namespace ProgramStudent
 {
-    public abstract class Needmant
+    public abstract class Needmant: IHaveID
     {
+        public int ID { get; set; }
         public int Modifier { get; set; }
         public int MaxValue { get; set; }
         public int CurrentValue { get; set; }

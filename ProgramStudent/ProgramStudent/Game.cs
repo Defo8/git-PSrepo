@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace ProgramStudent
 {
@@ -144,6 +145,7 @@ namespace ProgramStudent
                 {
                     player.Statistics.RemoveAt(i);
                 }
+                player.Statistics = player.Statistics.OrderBy(x => x.ID).ToList();
 
                 player.Locations[0].Hub(player);
             }

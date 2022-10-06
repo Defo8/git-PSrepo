@@ -10,6 +10,7 @@ namespace ProgramStudent
             CurrentValue = 100;
             Name = "Food";
             Modifier = 0;
+            ID = 1;
         }
 
         override public void Increase(int amount)

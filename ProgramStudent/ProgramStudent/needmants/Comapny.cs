@@ -11,6 +11,7 @@ namespace ProgramStudent
             CurrentValue = 100;
             Name = "Company";
             Modifier = 0;
+            ID = 4;
         }
 
         override public void Increase(int amount)
