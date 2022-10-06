@@ -24,8 +24,15 @@ namespace ProgramStudent
             ShowWindow(ThisConsole, MAXIMIZE);        
             
             Game game = new Game();
-             //HUD.MenuIntro();
-             game.Menu();
+
+            DateTime date1 = new DateTime(2055, 10, 1);
+            DateTime date2 = new DateTime(2056, 1, 28);
+            TimeSpan s = date1 - date2;
+            Console.WriteLine(s);
+            Console.ReadKey();
+
+            //HUD.MenuIntro();
+            game.Menu();
 
         }
     }   

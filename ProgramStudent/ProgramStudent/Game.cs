@@ -141,12 +141,7 @@ namespace ProgramStudent
             }
             else
             {
-                for (int i = 0; i < 5; i++) // temp thing?: Problem with doubled needmants after loading saves 
-                {
-                    player.Statistics.RemoveAt(i);
-                }
-                player.Statistics = player.Statistics.OrderBy(x => x.ID).ToList();
-
+          
                 player.Locations[0].Hub(player);
             }
                         

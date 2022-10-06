@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-
+using Newtonsoft.Json;
 namespace ProgramStudent
 {
     public class Player
     {
+        [JsonProperty("statistics", ObjectCreationHandling = ObjectCreationHandling.Replace)] // YAY! 
         public List<Needmant> Statistics { get; set; }
         public List<IProduct> Inventory { get; set; } = new();
         public ILocation CurrentLocation { get; set; }
