@@ -23,11 +23,11 @@ namespace ProgramStudent
 
         public void UpdateIfNeeded(Player player)
         {
-            TimeSpan hourAndHalf = new DateTime(1, 1, 1, 1, 30, 0) - new DateTime(1, 1, 1, 0, 0, 0);
+            TimeSpan Houer = new DateTime(1, 1, 1, 1, 0, 0) - new DateTime(1, 1, 1, 0, 0, 0);
             TimeSpan ourDiffrence = player.Time.Calendar - player.TimeConsequence.LastChangeCalendar;
             double rr = Math.Floor(ourDiffrence.TotalHours);
             Random rnd = new Random();
-            if (ourDiffrence >= hourAndHalf)
+            if (ourDiffrence >= Houer)
             {
                 if (ourDiffrence.TotalHours > 14)
                 {
