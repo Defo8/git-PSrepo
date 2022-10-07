@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.IO;
 
 namespace ProgramStudent
 {
@@ -21,14 +22,13 @@ namespace ProgramStudent
         }
 
         public void Hub(Player player)
-        {
-            
-            
+        {          
 
             while (true)
             {
 
                 Console.Clear();
+                Console.WriteLine(File.ReadAllText(Game.ART + "dorm.txt"));
                 Console.WriteLine("== Dorm == " + "Calendary: " + player.Time.Calendar + " " + player.Time.Calendar.DayOfWeek);
                 Console.WriteLine("1. Sleep");
                 Console.WriteLine("2. Laptop");

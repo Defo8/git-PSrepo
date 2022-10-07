@@ -155,7 +155,7 @@ namespace ProgramStudent
                 Console.Clear();
                 Console.WriteLine(File.ReadAllText(ART + "menu.txt"));
                 Console.Title = "PROGRAM:   S  .   T   .   U   .   D   .   E   .   N   .   T";
-                Console.WriteLine("What you want hmm...? - , - : START NEW GAME, CONTINUE, SAVE GAME, LOAD GAME, CREDITS, QUIT: ");
+                Console.WriteLine(String.Format("{0," + Console.WindowWidth / 2 + "}", "What you want hmm...? - , - : START NEW GAME, CONTINUE, SAVE GAME, LOAD GAME, CREDITS, QUIT: "));
                 Console.WriteLine();
                 string ans = Console.ReadLine();
                 switch (ans)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.IO;
 
 namespace ProgramStudent
 {
@@ -19,6 +20,8 @@ namespace ProgramStudent
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine(File.ReadAllText(Game.ART + "laptop.txt"));
+                Console.WriteLine("");
                 Console.WriteLine("Calendary: " + player.Time.Calendar);
                 Console.WriteLine("== Dorm: Laptop ==");
                 Console.WriteLine("1. Talk with someone on PresentBook");
