@@ -8,6 +8,7 @@ namespace ProgramStudent
 {
     public class TimeConsequence : Time
     {
+        public static readonly TimeSpan HOUR = new DateTime(1, 1, 1, 1, 0, 0) - new DateTime(1, 1, 1, 0, 0, 0);
         public DateTime LastChangeCalendar { get; set; }
         public int LastYear { get; set; }
         public int LastMonth { get; set; }
@@ -21,13 +22,13 @@ namespace ProgramStudent
             LastDay = date.Day;
         }
 
-        public void UpdateIfNeeded(Player player)
+        public void UpdateIfNeeded(Player player) 
         {
-            TimeSpan Houer = new DateTime(1, 1, 1, 1, 0, 0) - new DateTime(1, 1, 1, 0, 0, 0);
+            
             TimeSpan ourDiffrence = player.Time.Calendar - player.TimeConsequence.LastChangeCalendar;
-            double rr = Math.Floor(ourDiffrence.TotalHours);
+            double totalHoursPastByHalf = Math.Floor(ourDiffrence.TotalHours)/2;
             Random rnd = new Random();
-            if (ourDiffrence >= Houer)
+            if (ourDiffrence >= HOUR)
             {
                 if (ourDiffrence.TotalHours > 14)
                 {
@@ -35,7 +36,7 @@ namespace ProgramStudent
                     Console.Clear();
                     Console.WriteLine("REMEMBER! IF YOU STUDY YOU WILL PASS, IF YOU NOT YOU WON'T... :) ");
                     Thread.Sleep(2000);
-                    for (int i = 0; i < rr/2; i++)
+                    for (int i = 0; i < totalHoursPastByHalf; i++)
                     {
                         player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(9));
                         player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(9));
@@ -74,7 +75,7 @@ namespace ProgramStudent
                 LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
 
 
-                for (int i = 0; i < rr/2; i++)
+                for (int i = 0; i < totalHoursPastByHalf/2; i++)
                 {
                     player.Statistics[0].Decrease(rnd.Next(15));
                     player.Statistics[1].Decrease(rnd.Next(15));
