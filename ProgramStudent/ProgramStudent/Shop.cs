@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace ProgramStudent
 {
     class Shop: ILocation
     {
+        public static readonly TimeSpan CLOSINGHOUR = new TimeSpan(22, 0, 0);
+        public static readonly TimeSpan OPENINGOUR = new TimeSpan(7, 0, 0);
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public List<FoodProduct> ListOfFood { get; set; }
@@ -29,6 +31,19 @@ namespace ProgramStudent
         {
             while (true)
             {
+                if (player.Time.Calendar.TimeOfDay > CLOSINGHOUR || player.Time.Calendar.TimeOfDay < OPENINGOUR || IsActive == false)
+                {
+                    Console.WriteLine("Shop is closed... (Open at 7:00 - 22: 00)");
+                    IsActive = false;
+                    player.Time.Calendar.AddMinutes(-20);
+                    Thread.Sleep(3000);
+                    break;
+                }
+                else
+                {
+                    IsActive = true;
+                }
+
                 Console.Clear();
                 Console.WriteLine("== Shop  == " + "Calendary: " + player.Time.Calendar + " " + player.Time.Calendar.DayOfWeek);
                 Console.WriteLine("1. Buy something");

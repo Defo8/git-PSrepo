@@ -49,7 +49,7 @@ namespace ProgramStudent
         {
             Console.WriteLine("Where do you want to go?");
             Console.WriteLine("1. University");
-            Console.WriteLine("2. Change Location");
+            Console.WriteLine("2. Ladybird's shop");
             Console.WriteLine("0. Stay here");
             string ans = Console.ReadLine();
             if(ans == "1")
