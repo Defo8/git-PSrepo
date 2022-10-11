@@ -26,7 +26,7 @@ namespace ProgramStudent
         {
             
             TimeSpan ourDiffrence = player.Time.Calendar - player.TimeConsequence.LastChangeCalendar;
-            double totalHoursPastByHalf = Math.Floor(ourDiffrence.TotalHours)/2;
+            double totalHoursPast = Math.Floor(ourDiffrence.TotalHours);
             Random rnd = new Random();
             if (ourDiffrence >= HOUR)
             {
@@ -36,14 +36,14 @@ namespace ProgramStudent
                     Console.Clear();
                     Console.WriteLine("REMEMBER! IF YOU STUDY YOU WILL PASS, IF YOU NOT YOU WON'T... :) ");
                     Thread.Sleep(2000);
-                    for (int i = 0; i < totalHoursPastByHalf; i++)
+                    for (int i = 0; i < totalHoursPast; i++)
                     {
-                        player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(9));
-                        player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(9));
-                        player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(9));
-                        player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(9));
-                        if (rnd.Next(100) > 70)
-                            player.ChangeStatisticsCurrentValue(typeof(MentalHealth), -rnd.Next(4));
+                        player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(8, 16));
+                        player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(7, 10));
+                        player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(5, 5));
+                        player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(6, 8));
+                        if (rnd.Next(100) > 65)
+                            player.ChangeStatisticsCurrentValue(typeof(MentalHealth), rnd.Next(0, 18));
                     }
 
                     foreach (Needmant stat in player.Statistics)
@@ -75,14 +75,14 @@ namespace ProgramStudent
                 LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
 
 
-                for (int i = 0; i < totalHoursPastByHalf/2; i++)
+                for (int i = 0; i < totalHoursPast; i++)
                 {
-                    player.Statistics[0].Decrease(rnd.Next(15));
-                    player.Statistics[1].Decrease(rnd.Next(15));
-                    player.Statistics[2].Decrease(rnd.Next(15));
-                    player.Statistics[3].Decrease(rnd.Next(8));
+                    player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(4, 16));
+                    player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(5, 10));
+                    player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(1, 5));
+                    player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(4, 7));
                     if (rnd.Next(100) > 70)
-                        player.Statistics[4].Decrease(3);
+                        player.ChangeStatisticsCurrentValue(typeof(MentalHealth), rnd.Next(-15, 15));
                 }
             }
 
