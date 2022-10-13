@@ -117,18 +117,19 @@ namespace ProgramStudent
                 }
             }
 
-            int SleepGain = h * 14; // add to const
-            int EnergyGain = h * 14;
+            int SleepGain = h * 20; // add to const
+            int EnergyGain = h * 20;
 
             player.ShowPlayerInfo();
 
             if(h > 0) // if h = 0, back to doormroom
             {
-                player.ChangeStatisticsCurrentValue(typeof(Energy), EnergyGain);
-                player.ChangeStatisticsCurrentValue(typeof(Sleep), SleepGain);
+                
                 player.Time.Calendar = player.Time.Calendar.AddHours(h);
                 player.TimeConsequence.UpdateIfNeeded(player);
-                
+                player.ChangeStatisticsCurrentValue(typeof(Energy), EnergyGain);
+                player.ChangeStatisticsCurrentValue(typeof(Sleep), SleepGain);
+
                 Console.Clear();
 
                 string zzz = "Z Z Z Z Z z z z z. . .";

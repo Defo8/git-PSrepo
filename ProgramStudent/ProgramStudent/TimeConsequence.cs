@@ -30,7 +30,7 @@ namespace ProgramStudent
             Random rnd = new Random();
             if (ourDiffrence >= HOUR)
             {
-                if (ourDiffrence.TotalHours > 14)
+                if (ourDiffrence.TotalHours > 3)
                 {
                     LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
                     Console.Clear();
@@ -40,8 +40,8 @@ namespace ProgramStudent
                     {
                         player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(8, 16));
                         player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(7, 10));
-                        player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(5, 5));
-                        player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(6, 8));
+                        player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(4, 5));
+                        player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(6, 11));
                         if (rnd.Next(100) > 65)
                             player.ChangeStatisticsCurrentValue(typeof(MentalHealth), rnd.Next(0, 18));
                     }
@@ -80,7 +80,7 @@ namespace ProgramStudent
                     player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(4, 16));
                     player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(5, 10));
                     player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(1, 5));
-                    player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(4, 7));
+                    player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(5, 10));
                     if (rnd.Next(100) > 70)
                         player.ChangeStatisticsCurrentValue(typeof(MentalHealth), rnd.Next(-15, 15));
                 }

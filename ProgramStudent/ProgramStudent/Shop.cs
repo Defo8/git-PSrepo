@@ -23,7 +23,8 @@ namespace ProgramStudent
                 new FoodProduct("Yoghurt", 3, new DateTime(2054, 11, 23), 10),
                 new FoodProduct("Bread", 2, new DateTime(2054, 11, 23), 20),
                 new FoodProduct("Banana", 2, new DateTime(2054, 11, 23), 8),
-                new FoodProduct("Cheese", 5, new DateTime(2054, 11, 23), 25),
+                new FoodProduct("Cheese", 5, new DateTime(2054, 11, 23), 20),
+
             };
         }
 

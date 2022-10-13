@@ -8,12 +8,28 @@ namespace ProgramStudent
 {
     public class University : ILocation
     {
+        public static readonly TimeSpan CLOSINGHOUR = new TimeSpan(21, 0, 0);
+        public static readonly TimeSpan OPENINGOUR = new TimeSpan(6, 0, 0);
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public void Hub(Player player)
         {
             while (true)
             {
+                if (player.Time.Calendar.TimeOfDay > CLOSINGHOUR || player.Time.Calendar.TimeOfDay < OPENINGOUR)
+                {
+                    Console.Clear();
+                    Console.WriteLine("University is closed... (Open at 6:00 - 21: 00)");
+                    IsActive = false;
+                    player.Time.Calendar.AddMinutes(-20);
+                    Thread.Sleep(3000);
+                    break;
+                }
+                else
+                {
+                    IsActive = true;
+                }
+
                 Console.Clear();
                 Console.WriteLine("== Academy == " + "Calendary: " + player.Time.Calendar + " " + player.Time.Calendar.DayOfWeek);
                 Console.WriteLine("1. Attend on classes");
