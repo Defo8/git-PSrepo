@@ -31,7 +31,7 @@ namespace ProgramStudent
         {
             while (true)
             {
-                if (player.Time.Calendar.TimeOfDay > CLOSINGHOUR || player.Time.Calendar.TimeOfDay < OPENINGOUR || IsActive == false)
+                if (player.Time.Calendar.TimeOfDay > CLOSINGHOUR || player.Time.Calendar.TimeOfDay < OPENINGOUR)
                 {
                     Console.WriteLine("Shop is closed... (Open at 7:00 - 22: 00)");
                     IsActive = false;
