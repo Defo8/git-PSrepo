@@ -49,8 +49,11 @@ namespace ProgramStudent
                         Console.WriteLine("Food in the fridge: ");
                         DisplayFoodInList();
 
-                        Console.WriteLine("\nWhat you want to do? (Number): ");
+                        Console.WriteLine("\nWhat you want to eat? (0 if you want to leave): ");
                         string anss = Console.ReadLine();
+                        if (anss == "0")
+                            break;
+
                         FoodProduct food;
                         while (true)
                         {

@@ -166,15 +166,65 @@ namespace ProgramStudent
         {
             foreach (Needmant stat in Statistics)
             {
-                Console.Write(stat.Name+ "\n");
-                for(int i=0; i<stat.CurrentValue/10; i++)
-                {                   
-                    Console.Write("█");
+                if (stat.Name == "Food")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.MaxValue/10; i++)
+                    {                                             
+                        Console.Write("██");                       
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
                 }
-                Console.Write(stat.CurrentValue);
-                Console.WriteLine("\n");
-            }
+                else if (stat.Name == "Energy")
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.MaxValue / 10; i++)
+                    {
+                        Console.Write("██");
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
+                }
+                else if (stat.Name == "Sleep")
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.MaxValue / 10; i++)
+                    {
+                        Console.Write("██");
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
+                }
+                else if (stat.Name == "Company")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.MaxValue / 10; i++)
+                    {
+                        Console.Write("██");
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
+                }
+                else if (stat.Name == "MentalHealth")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.MaxValue / 10; i++)
+                    {
+                        Console.Write("██");
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
+                }
 
+                Console.ResetColor();
+            }
+                
             Console.WriteLine("Knwoledge Points: " + KnowledgePoints);
             Console.WriteLine("Money: " + Money);
                     
