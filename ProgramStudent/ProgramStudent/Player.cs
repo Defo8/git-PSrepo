@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 using Newtonsoft.Json;
 namespace ProgramStudent
 {
@@ -10,7 +9,6 @@ namespace ProgramStudent
         public List<Needmant> Statistics { get; set; }
         public List<IProduct> Inventory { get; set; } = new();
         public ILocation CurrentLocation { get; set; }
-        public Time Time { get; } = new();
         public TimeConsequence TimeConsequence { get; set; }
         public double Money { get; set; }
         public int KnowledgePoints { get; set; }
@@ -62,25 +60,6 @@ namespace ProgramStudent
             }
             Time.Calendar.AddMinutes(20);
             TimeConsequence.UpdateIfNeeded(this);                   
-        }
-        public Player(bool SaveLoaded)
-        {
-            PlayerInfo = new PlayerBio();
-
-            Statistics = new List<Needmant>();
-
-
-            Locations = new List<ILocation> { new DormRoom(), new University() };
-            CurrentLocation = Locations[0];
-            TimeConsequence = new TimeConsequence(Time.Calendar);
-            Money = 500;
-            KnowledgePoints = 0;
-
-            Statistics[3].Decrease(80);
-            Statistics[4].Decrease(80);
-            Statistics[0].Decrease(80);
-            Statistics[1].Decrease(80);
-            Statistics[2].Decrease(80);
         }
         public void ChangeStatisticsMaxValue(Type needmant, int amount)
         {

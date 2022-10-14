@@ -19,7 +19,7 @@ namespace ProgramStudent
 
         public FastNote GiveNote()
         {
-            Console.WriteLine(" w8 w8 w8.... you know what? You are such a bad, I will give my notes");
+            Console.WriteLine(" w8 w8 w8.... you know what? You are such a fool, I will give you my notes");
             Thread.Sleep(4000);
             return new FastNote("Adam's Notes", 25, 0, 100);
         }

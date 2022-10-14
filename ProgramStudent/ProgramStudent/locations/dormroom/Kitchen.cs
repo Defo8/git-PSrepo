@@ -5,19 +5,23 @@ using System.Threading;
 
 namespace ProgramStudent
 {
-    class Fridge
+    class Kitchen : ILocation
     {
-        public List<FoodProduct> FoodInList { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+        public List<FoodProduct> FoodInKitchenList { get; set; }
 
-        public Fridge()
+        public Kitchen()
         {
-            FoodInList = new List<FoodProduct>
+            Name = "Kitchen";
+            IsActive = true;
+            FoodInKitchenList = new List<FoodProduct>
             {
                 new FoodProduct("Yoghurt", 3, new DateTime(2060, 12,1), 10)
             };
         }
 
-        public void FridgeHub(Player player)
+        public void Hub(Player player)
         {
             while (true)
             {         
@@ -25,13 +29,13 @@ namespace ProgramStudent
                 {
                     foreach (FoodProduct food in player.Inventory)
                     {
-                        FoodInList.Add(food);
+                        FoodInKitchenList.Add(food);
                     }
                 }                                        
                 player.Inventory.Clear();
 
                 Console.Clear();
-                Console.WriteLine("== Dorm: Fridge ==");
+                Console.WriteLine("== Dorm: Kitchen ==");
                 Console.WriteLine("1. Food");
                 Console.WriteLine("0. Back");
                 Console.WriteLine("\nSTATS:");
@@ -44,9 +48,9 @@ namespace ProgramStudent
                 if (ans == "1")
                 {
                     Console.Clear();
-                    if (FoodInList.Count > 0)
+                    if (FoodInKitchenList.Count > 0)
                     {
-                        Console.WriteLine("Food in the fridge: ");
+                        Console.WriteLine("Food in the kitchen: ");
                         DisplayFoodInList();
 
                         Console.WriteLine("\nWhat you want to eat? (0 if you want to leave): ");
@@ -59,12 +63,12 @@ namespace ProgramStudent
                         {
                             try
                             {
-                                food = (from f in FoodInList where f.Name == anss select f).First();
+                                food = (from f in FoodInKitchenList where f.Name == anss select f).First();
                                 break;
                             }
                             catch
                             {
-                                Console.WriteLine("There is no this kind of food in the fridge :<");
+                                Console.WriteLine("There is no this kind of food in the kitchen :<");
                                 Console.WriteLine("\nWhat you want to do? (Number): ");
                                 anss = Console.ReadLine();
                             }
@@ -73,7 +77,7 @@ namespace ProgramStudent
 
                         if (food != null)
                         {
-                            FoodInList.Remove(food);
+                            FoodInKitchenList.Remove(food);
                             player.Statistics[0].Increase(food.FoodValue);
                             Time.Calendar = Time.Calendar.AddMinutes(15);
 
@@ -103,7 +107,7 @@ namespace ProgramStudent
 
         public void DisplayFoodInList()
         {
-            foreach (var product in FoodInList)
+            foreach (var product in FoodInKitchenList)
             {
                 Console.WriteLine(product.Name + ", Food points: " + product.FoodValue
                                                + ", Valid date: " + product.ValidDate);
