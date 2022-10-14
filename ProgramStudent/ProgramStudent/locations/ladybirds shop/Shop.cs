@@ -19,11 +19,11 @@ namespace ProgramStudent
             Name = "Shop";
             IsActive = true;
             ListOfFood = new List<FoodProduct>
-            {
-                new FoodProduct("Yoghurt", 3, new DateTime(2054, 11, 23), 10),
-                new FoodProduct("Bread", 2, new DateTime(2054, 11, 23), 20),
+            {               
+                new FoodProduct("Bread", 2, new DateTime(2054, 11, 23), 40, mass: 450), // kromka chleba 50g
                 new FoodProduct("Banana", 2, new DateTime(2054, 11, 23), 8),
-                new FoodProduct("Cheese", 5, new DateTime(2054, 11, 23), 20),
+                new FoodProduct("Cheese", 5, new DateTime(2054, 11, 23), 35, mass: 200),
+                new FoodProduct("Ham", 4, new DateTime(20), 50, mass: 200)
 
             };
         }
@@ -32,11 +32,11 @@ namespace ProgramStudent
         {
             while (true)
             {
-                if (player.Time.Calendar.TimeOfDay > CLOSINGHOUR || player.Time.Calendar.TimeOfDay < OPENINGOUR)
+                if (Time.Calendar.TimeOfDay > CLOSINGHOUR || Time.Calendar.TimeOfDay < OPENINGOUR) // add to function
                 {
                     Console.WriteLine("Shop is closed... (Open at 7:00 - 22: 00)");
                     IsActive = false;
-                    player.Time.Calendar.AddMinutes(-20);
+                    Time.Calendar.AddMinutes(-20);
                     Thread.Sleep(3000);
                     break;
                 }
@@ -46,7 +46,7 @@ namespace ProgramStudent
                 }
 
                 Console.Clear();
-                Console.WriteLine("== Shop  == " + "Calendary: " + player.Time.Calendar + " " + player.Time.Calendar.DayOfWeek);
+                Console.WriteLine("== Shop  == " + "Calendary: " + Time.Calendar + " " + Time.Calendar.DayOfWeek);
                 Console.WriteLine("1. Buy something");
                 Console.WriteLine("0. Go somwehere else");
                 Console.WriteLine("What you want to do? (Number): ");
@@ -88,12 +88,16 @@ namespace ProgramStudent
                     {
                         if(player.Money - food.Cost < 0)
                         {
+                            
                             Console.WriteLine("You don't have money");
+                            Thread.Sleep(2000);
                         }
                         else
                         {
-                            player.Inventory.Add(food);
-                            player.Money -= food.Cost;
+                            if (player.Inventory.Contains(food))
+                                player.Inventory.Find(x => x == food).Amount += 1;
+                            else
+                                player.Inventory.Add(food);                      
                         }                     
                     }
                 }

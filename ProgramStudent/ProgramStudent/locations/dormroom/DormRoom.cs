@@ -29,7 +29,7 @@ namespace ProgramStudent
 
                 Console.Clear();
                 Console.WriteLine(File.ReadAllText(Game.ART + "dorm.txt"));
-                Console.WriteLine("== Dorm == " + "Calendary: " + player.Time.Calendar + " " + player.Time.Calendar.DayOfWeek);
+                Console.WriteLine("== Dorm == " + "Calendary: " + Time.Calendar + " " + Time.Calendar.DayOfWeek);
                 Console.WriteLine("1. Sleep");
                 Console.WriteLine("2. Laptop");
                 Console.WriteLine("3. Fridge");
@@ -79,7 +79,7 @@ namespace ProgramStudent
                     Console.Write(t);
                     Thread.Sleep(20);
                 }
-                player.Time.Calendar = player.Time.Calendar.AddMinutes(15);
+                Time.Calendar = Time.Calendar.AddMinutes(15);
                 player.TimeConsequence.UpdateIfNeeded(player);
                 player.ChangeStatisticsCurrentValue(typeof(Company), 7);
                 player.ChangeStatisticsCurrentValue(typeof(MentalHealth), 5);
@@ -125,7 +125,7 @@ namespace ProgramStudent
             if(h > 0) // if h = 0, back to doormroom
             {
                 
-                player.Time.Calendar = player.Time.Calendar.AddHours(h);
+                Time.Calendar = Time.Calendar.AddHours(h);
                 player.TimeConsequence.UpdateIfNeeded(player);
                 player.ChangeStatisticsCurrentValue(typeof(Energy), EnergyGain);
                 player.ChangeStatisticsCurrentValue(typeof(Sleep), SleepGain);

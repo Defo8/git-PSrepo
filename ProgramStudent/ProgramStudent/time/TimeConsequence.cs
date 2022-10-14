@@ -25,7 +25,7 @@ namespace ProgramStudent
         public void UpdateIfNeeded(Player player) 
         {
             
-            TimeSpan ourDiffrence = player.Time.Calendar - player.TimeConsequence.LastChangeCalendar;
+            TimeSpan ourDiffrence = Time.Calendar - LastChangeCalendar;
             double totalHoursPast = Math.Floor(ourDiffrence.TotalHours);
             Random rnd = new Random();
             if (ourDiffrence >= HOUR)
@@ -54,7 +54,7 @@ namespace ProgramStudent
                         }
                     }
 
-                    if (player.Time.Calendar >= player.Time.EndOfSemester)
+                    if (Time.Calendar >= Time.EndOfSemester)
                     {
                         while (true)
                         {
@@ -86,7 +86,7 @@ namespace ProgramStudent
                 }
             }
 
-            if(player.Time.Calendar >= player.Time.EndOfSemester)
+            if(Time.Calendar >= Time.EndOfSemester)
             {
                 while(true)
                 {
@@ -121,7 +121,7 @@ namespace ProgramStudent
                 {typeof(Food), -5},
             };
 
-            IModify ChorobaCG = new ChangeMaxValueModifier(player, "Illness", player.Time.Calendar.AddDays(7), "You feel sick", ChorobaMVDict);
+            IModify ChorobaCG = new ChangeMaxValueModifier(player, "Illness", Time.Calendar.AddDays(7), "You feel sick", ChorobaMVDict);
             Event ChorobaEvent = new Event("You got sick!", "You are sick and you feel bad", ChorobaCG);
 
             ListOfEvent = new List<Event>

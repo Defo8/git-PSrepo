@@ -75,7 +75,7 @@ namespace ProgramStudent
                         {
                             FoodInList.Remove(food);
                             player.Statistics[0].Increase(food.FoodValue);
-                            player.Time.Calendar = player.Time.Calendar.AddMinutes(15);
+                            Time.Calendar = Time.Calendar.AddMinutes(15);
 
                         }
                         else
