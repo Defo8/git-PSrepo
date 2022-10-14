@@ -7,8 +7,6 @@ namespace ProgramStudent
         public static readonly TimeSpan CLOSINGHOUR;
         public string Name { get; set; }
         public bool IsActive { get; set; }
-        public void Hub(Player player);
-        
-
+        public void Hub(Player player);       
     }
 }
