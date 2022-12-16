@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.IO;
 
 namespace ProgramStudent
 {
@@ -8,7 +9,7 @@ namespace ProgramStudent
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public bool IsRoommateIn { get; set; }
-        public Fridge Fridge { get; set; }
+        public Kitchen Kitchen { get; set; }
         public Laptop Laptop { get; set; }
 
         public DormRoom()
@@ -16,23 +17,22 @@ namespace ProgramStudent
             Name = "Dorm";
             IsActive = true;
             IsRoommateIn = true;
-            Fridge = new Fridge();
+            Kitchen = new Kitchen();
             Laptop = new Laptop();
         }
 
         public void Hub(Player player)
-        {
-            
-            
+        {          
 
             while (true)
             {
 
                 Console.Clear();
-                Console.WriteLine("== Dorm == " + "Calendary: " + player.Time.Calendar + " " + player.Time.Calendar.DayOfWeek);
+                Console.WriteLine(File.ReadAllText(Game.ART + "dorm.txt"));
+                Console.WriteLine("== Dorm == " + "Calendary: " + Time.Calendar + " " + Time.Calendar.DayOfWeek);
                 Console.WriteLine("1. Sleep");
                 Console.WriteLine("2. Laptop");
-                Console.WriteLine("3. Fridge");
+                Console.WriteLine("3. Kitchen");
                 Console.WriteLine("4. Talk with Roommate");
                 Console.WriteLine("5. Door");
                 Console.WriteLine("0. Main Menu");
@@ -50,7 +50,7 @@ namespace ProgramStudent
                         Laptop.LaptopHub(player);
                         break;
                     case "3":
-                        Fridge.FridgeHub(player);
+                        Kitchen.Hub(player);
                         break;
                     case "4":
                         TalkWithRoommate(player);
@@ -79,7 +79,7 @@ namespace ProgramStudent
                     Console.Write(t);
                     Thread.Sleep(20);
                 }
-                player.Time.Calendar = player.Time.Calendar.AddMinutes(15);
+                Time.Calendar = Time.Calendar.AddMinutes(15);
                 player.TimeConsequence.UpdateIfNeeded(player);
                 player.ChangeStatisticsCurrentValue(typeof(Company), 7);
                 player.ChangeStatisticsCurrentValue(typeof(MentalHealth), 5);
@@ -94,15 +94,16 @@ namespace ProgramStudent
         public void SleepInBed(Player player)
         {
             Console.Clear();
+            Console.WriteLine(File.ReadAllText(Game.ART + "sleep.txt"));
             Console.WriteLine("How long do you want to sleep? (0 makes you back to Dorm view): ");
 
-            int h;
+            int hours;
             while (true)
             {
                 try
                 {
-                    h = Int32.Parse(Console.ReadLine());
-                    if (h < 0)
+                    hours = Int32.Parse(Console.ReadLine());
+                    if (hours < 0)
                     {
                         Console.WriteLine("Time lower than 0");
                     }
@@ -117,18 +118,16 @@ namespace ProgramStudent
                 }
             }
 
-            int SleepGain = h * 14; // add to const
-            int EnergyGain = h * 14;
+            int SleepGain = hours * 20; // add to const
+            int EnergyGain = hours * 20;
 
-            player.ShowPlayerInfo();
-
-            if(h > 0) // if h = 0, back to doormroom
-            {
+            if(hours > 0) // if h = 0, back to doormroom
+            {               
+                Time.Calendar = Time.Calendar.AddHours(hours);
+                player.TimeConsequence.UpdateIfNeeded(player);
                 player.ChangeStatisticsCurrentValue(typeof(Energy), EnergyGain);
                 player.ChangeStatisticsCurrentValue(typeof(Sleep), SleepGain);
-                player.Time.Calendar = player.Time.Calendar.AddHours(h);
-                player.TimeConsequence.UpdateIfNeeded(player);
-                
+
                 Console.Clear();
 
                 string zzz = "Z Z Z Z Z z z z z. . .";

@@ -44,7 +44,7 @@ namespace ProgramStudent
                     }
                     else
                     {
-                        player.Time.Calendar = player.Time.Calendar.AddHours(h);
+                        Time.Calendar = Time.Calendar.AddHours(h);
                         player.TimeConsequence.UpdateIfNeeded(player);
                         if (MakeingProgress + h * 20 > 100)
                         {
@@ -97,7 +97,7 @@ namespace ProgramStudent
                     }
                     else
                     {
-                        player.Time.Calendar = player.Time.Calendar.AddHours(h);
+                        Time.Calendar = Time.Calendar.AddHours(h);
                         player.TimeConsequence.UpdateIfNeeded(player);
                         player.KnowledgePoints += h * LONGERNOTE;
                         break;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 using Newtonsoft.Json;
 namespace ProgramStudent
 {
@@ -10,7 +9,6 @@ namespace ProgramStudent
         public List<Needmant> Statistics { get; set; }
         public List<IProduct> Inventory { get; set; } = new();
         public ILocation CurrentLocation { get; set; }
-        public Time Time { get; } = new();
         public TimeConsequence TimeConsequence { get; set; }
         public double Money { get; set; }
         public int KnowledgePoints { get; set; }
@@ -38,7 +36,8 @@ namespace ProgramStudent
                 KnownNPC.Add(new Roommate());
                 Locations = new List<ILocation> { new DormRoom(), new University(), new Shop(), };
                 CurrentLocation = Locations[0];
-                TimeConsequence = new TimeConsequence(Time.Calendar);
+                
+                TimeConsequence = new TimeConsequence(new DateTime(2054, 10, 1, 9, 0, 0));
 
                 Money = 500;
                 KnowledgePoints = 0;
@@ -49,7 +48,7 @@ namespace ProgramStudent
         {
             Console.WriteLine("Where do you want to go?");
             Console.WriteLine("1. University");
-            Console.WriteLine("2. Change Location");
+            Console.WriteLine("2. Ladybird's shop");
             Console.WriteLine("0. Stay here");
             string ans = Console.ReadLine();
             if(ans == "1")
@@ -62,25 +61,6 @@ namespace ProgramStudent
             }
             Time.Calendar.AddMinutes(20);
             TimeConsequence.UpdateIfNeeded(this);                   
-        }
-        public Player(bool SaveLoaded)
-        {
-            PlayerInfo = new PlayerBio();
-
-            Statistics = new List<Needmant>();
-
-
-            Locations = new List<ILocation> { new DormRoom(), new University() };
-            CurrentLocation = Locations[0];
-            TimeConsequence = new TimeConsequence(Time.Calendar);
-            Money = 500;
-            KnowledgePoints = 0;
-
-            Statistics[3].Decrease(80);
-            Statistics[4].Decrease(80);
-            Statistics[0].Decrease(80);
-            Statistics[1].Decrease(80);
-            Statistics[2].Decrease(80);
         }
         public void ChangeStatisticsMaxValue(Type needmant, int amount)
         {
@@ -166,15 +146,65 @@ namespace ProgramStudent
         {
             foreach (Needmant stat in Statistics)
             {
-                Console.Write(stat.Name+ "\n");
-                for(int i=0; i<stat.CurrentValue/10; i++)
-                {                   
-                    Console.Write("█");
+                if (stat.Name == "Food")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.CurrentValue/10; i++)
+                    {                                             
+                        Console.Write("██");                       
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
                 }
-                Console.Write(stat.CurrentValue);
-                Console.WriteLine("\n");
-            }
+                else if (stat.Name == "Energy")
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.CurrentValue / 10; i++)
+                    {
+                        Console.Write("██");
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
+                }
+                else if (stat.Name == "Sleep")
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.CurrentValue / 10; i++)
+                    {
+                        Console.Write("██");
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
+                }
+                else if (stat.Name == "Company")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.CurrentValue / 10; i++)
+                    {
+                        Console.Write("██");
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
+                }
+                else if (stat.Name == "MentalHealth")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    Console.Write(stat.Name + "\n");
+                    for (int i = 0; i < stat.CurrentValue / 10; i++)
+                    {
+                        Console.Write("██");
+                    }
+                    Console.Write(stat.CurrentValue);
+                    Console.WriteLine("\n");
+                }
 
+                Console.ResetColor();
+            }
+                
             Console.WriteLine("Knwoledge Points: " + KnowledgePoints);
             Console.WriteLine("Money: " + Money);
                     

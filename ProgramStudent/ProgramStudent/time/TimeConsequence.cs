@@ -8,11 +8,19 @@ namespace ProgramStudent
 {
     public class TimeConsequence : Time
     {
+        public static readonly TimeSpan HOUR = new DateTime(1, 1, 1, 1, 0, 0) - new DateTime(1, 1, 1, 0, 0, 0);
         public DateTime LastChangeCalendar { get; set; }
         public int LastYear { get; set; }
         public int LastMonth { get; set; }
         public int LastDay { get; set; }
         public List<Event> ListOfEvent { get; set; }
+        public TimeConsequence()
+        {
+            LastChangeCalendar = new DateTime(2054, 10, 1, 9, 0, 0);
+            LastYear = LastChangeCalendar.Year;
+            LastMonth = LastChangeCalendar.Month;
+            LastDay = LastChangeCalendar.Day;
+        }
         public TimeConsequence(DateTime date)
         {
             LastChangeCalendar = date;
@@ -21,45 +29,45 @@ namespace ProgramStudent
             LastDay = date.Day;
         }
 
-        public void UpdateIfNeeded(Player player)
+        public void UpdateIfNeeded(Player player) 
         {
-            TimeSpan Houer = new DateTime(1, 1, 1, 1, 0, 0) - new DateTime(1, 1, 1, 0, 0, 0);
-            TimeSpan ourDiffrence = player.Time.Calendar - player.TimeConsequence.LastChangeCalendar;
-            double rr = Math.Floor(ourDiffrence.TotalHours);
+            
+            TimeSpan ourDiffrence = Time.Calendar - player.TimeConsequence.LastChangeCalendar;
+            double totalHoursPast = Math.Floor(ourDiffrence.TotalHours);
             Random rnd = new Random();
-            if (ourDiffrence >= Houer)
+            if (ourDiffrence.TotalHours >= 1)
             {
-                if (ourDiffrence.TotalHours > 14)
+                if (ourDiffrence.TotalHours > 11) // to reward strange and destructiv behavior like sleeping 11h+ or playing games for 11h + 
                 {
                     LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
                     Console.Clear();
                     Console.WriteLine("REMEMBER! IF YOU STUDY YOU WILL PASS, IF YOU NOT YOU WON'T... :) ");
                     Thread.Sleep(2000);
-                    for (int i = 0; i < rr/2; i++)
+                    for (int i = 0; i < totalHoursPast; i++)
                     {
-                        player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(9));
-                        player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(9));
-                        player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(9));
-                        player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(9));
-                        if (rnd.Next(100) > 70)
-                            player.ChangeStatisticsCurrentValue(typeof(MentalHealth), -rnd.Next(4));
+                        player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(6, 16));
+                        player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(10, 15));
+                        player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(4, 5));
+                        player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(6, 11));
+                        if (rnd.Next(100) > 50)
+                            player.ChangeStatisticsCurrentValue(typeof(MentalHealth), rnd.Next(0, 18));
                     }
 
-                    foreach (Needmant stat in player.Statistics)
+                    foreach (Needmant potentialStatWith0points in player.Statistics)
                     {
-                        if (stat.CurrentValue == 0)
+                        if (potentialStatWith0points.CurrentValue == 0)
                         {
-                            stat.IfCurrentValueZero();
+                            potentialStatWith0points.IfCurrentValueZero();
                         }
                     }
 
-                    if (player.Time.Calendar >= player.Time.EndOfSemester)
+                    if (Time.Calendar >= Time.EndOfSemester)
                     {
                         while (true)
                         {
                             if (player.KnowledgePoints >= 15000)
                             {
-                                Console.WriteLine("GRATULACJE!!! UDALO CI SIE ZDAC SESJE");
+                                Console.WriteLine("CONGRATS!!! UDALO CI SIE ZDAC SESJE");
                                 Environment.Exit(0);
                             }
                             else
@@ -74,18 +82,18 @@ namespace ProgramStudent
                 LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
 
 
-                for (int i = 0; i < rr/2; i++)
+                for (int i = 0; i < totalHoursPast; i++)
                 {
-                    player.Statistics[0].Decrease(rnd.Next(15));
-                    player.Statistics[1].Decrease(rnd.Next(15));
-                    player.Statistics[2].Decrease(rnd.Next(15));
-                    player.Statistics[3].Decrease(rnd.Next(8));
+                    player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(4, 16));
+                    player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(5, 10));
+                    player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(1, 5));
+                    player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(5, 10));
                     if (rnd.Next(100) > 70)
-                        player.Statistics[4].Decrease(3);
+                        player.ChangeStatisticsCurrentValue(typeof(MentalHealth), rnd.Next(-15, 15));
                 }
             }
 
-            if(player.Time.Calendar >= player.Time.EndOfSemester)
+            if(Time.Calendar >= Time.EndOfSemester)
             {
                 while(true)
                 {
@@ -120,7 +128,7 @@ namespace ProgramStudent
                 {typeof(Food), -5},
             };
 
-            IModify ChorobaCG = new ChangeMaxValueModifier(player, "Illness", player.Time.Calendar.AddDays(7), "You feel sick", ChorobaMVDict);
+            IModify ChorobaCG = new ChangeMaxValueModifier(player, "Illness", Time.Calendar.AddDays(7), "You feel sick", ChorobaMVDict);
             Event ChorobaEvent = new Event("You got sick!", "You are sick and you feel bad", ChorobaCG);
 
             ListOfEvent = new List<Event>
