@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.IO;
 
 namespace ProgramStudent
 {
@@ -24,7 +25,8 @@ namespace ProgramStudent
         public void Hub(Player player)
         {
             while (true)
-            {         
+            {
+                
                 if(player.Inventory.Count > 0)
                 {
                     foreach (FoodProduct food in player.Inventory)
@@ -35,6 +37,7 @@ namespace ProgramStudent
                 player.Inventory.Clear();
 
                 Console.Clear();
+                Console.WriteLine(File.ReadAllText(Game.ART + "kitchen.txt"));
                 Console.WriteLine("== Dorm: Kitchen ==");
                 Console.WriteLine("1. Food");
                 Console.WriteLine("0. Back");

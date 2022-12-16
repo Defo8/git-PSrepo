@@ -36,7 +36,8 @@ namespace ProgramStudent
                 KnownNPC.Add(new Roommate());
                 Locations = new List<ILocation> { new DormRoom(), new University(), new Shop(), };
                 CurrentLocation = Locations[0];
-                TimeConsequence = new TimeConsequence(Time.Calendar);
+                
+                TimeConsequence = new TimeConsequence(new DateTime(2054, 10, 1, 9, 0, 0));
 
                 Money = 500;
                 KnowledgePoints = 0;
@@ -149,7 +150,7 @@ namespace ProgramStudent
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write(stat.Name + "\n");
-                    for (int i = 0; i < stat.MaxValue/10; i++)
+                    for (int i = 0; i < stat.CurrentValue/10; i++)
                     {                                             
                         Console.Write("██");                       
                     }
@@ -160,7 +161,7 @@ namespace ProgramStudent
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write(stat.Name + "\n");
-                    for (int i = 0; i < stat.MaxValue / 10; i++)
+                    for (int i = 0; i < stat.CurrentValue / 10; i++)
                     {
                         Console.Write("██");
                     }
@@ -171,7 +172,7 @@ namespace ProgramStudent
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(stat.Name + "\n");
-                    for (int i = 0; i < stat.MaxValue / 10; i++)
+                    for (int i = 0; i < stat.CurrentValue / 10; i++)
                     {
                         Console.Write("██");
                     }
@@ -182,7 +183,7 @@ namespace ProgramStudent
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write(stat.Name + "\n");
-                    for (int i = 0; i < stat.MaxValue / 10; i++)
+                    for (int i = 0; i < stat.CurrentValue / 10; i++)
                     {
                         Console.Write("██");
                     }
@@ -193,7 +194,7 @@ namespace ProgramStudent
                 {
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
                     Console.Write(stat.Name + "\n");
-                    for (int i = 0; i < stat.MaxValue / 10; i++)
+                    for (int i = 0; i < stat.CurrentValue / 10; i++)
                     {
                         Console.Write("██");
                     }

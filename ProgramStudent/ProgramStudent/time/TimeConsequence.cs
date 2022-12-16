@@ -14,6 +14,13 @@ namespace ProgramStudent
         public int LastMonth { get; set; }
         public int LastDay { get; set; }
         public List<Event> ListOfEvent { get; set; }
+        public TimeConsequence()
+        {
+            LastChangeCalendar = new DateTime(2054, 10, 1, 9, 0, 0);
+            LastYear = LastChangeCalendar.Year;
+            LastMonth = LastChangeCalendar.Month;
+            LastDay = LastChangeCalendar.Day;
+        }
         public TimeConsequence(DateTime date)
         {
             LastChangeCalendar = date;
@@ -25,12 +32,12 @@ namespace ProgramStudent
         public void UpdateIfNeeded(Player player) 
         {
             
-            TimeSpan ourDiffrence = Time.Calendar - LastChangeCalendar;
+            TimeSpan ourDiffrence = Time.Calendar - player.TimeConsequence.LastChangeCalendar;
             double totalHoursPast = Math.Floor(ourDiffrence.TotalHours);
             Random rnd = new Random();
-            if (ourDiffrence >= HOUR)
+            if (ourDiffrence.TotalHours >= 1)
             {
-                if (ourDiffrence.TotalHours > 3)
+                if (ourDiffrence.TotalHours > 11) // to reward strange and destructiv behavior like sleeping 11h+ or playing games for 11h + 
                 {
                     LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
                     Console.Clear();
@@ -38,19 +45,19 @@ namespace ProgramStudent
                     Thread.Sleep(2000);
                     for (int i = 0; i < totalHoursPast; i++)
                     {
-                        player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(8, 16));
-                        player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(7, 10));
+                        player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(6, 16));
+                        player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(10, 15));
                         player.ChangeStatisticsCurrentValue(typeof(Company), -rnd.Next(4, 5));
                         player.ChangeStatisticsCurrentValue(typeof(Sleep), -rnd.Next(6, 11));
-                        if (rnd.Next(100) > 65)
+                        if (rnd.Next(100) > 50)
                             player.ChangeStatisticsCurrentValue(typeof(MentalHealth), rnd.Next(0, 18));
                     }
 
-                    foreach (Needmant stat in player.Statistics)
+                    foreach (Needmant potentialStatWith0points in player.Statistics)
                     {
-                        if (stat.CurrentValue == 0)
+                        if (potentialStatWith0points.CurrentValue == 0)
                         {
-                            stat.IfCurrentValueZero();
+                            potentialStatWith0points.IfCurrentValueZero();
                         }
                     }
 
@@ -60,7 +67,7 @@ namespace ProgramStudent
                         {
                             if (player.KnowledgePoints >= 15000)
                             {
-                                Console.WriteLine("GRATULACJE!!! UDALO CI SIE ZDAC SESJE");
+                                Console.WriteLine("CONGRATS!!! UDALO CI SIE ZDAC SESJE");
                                 Environment.Exit(0);
                             }
                             else
