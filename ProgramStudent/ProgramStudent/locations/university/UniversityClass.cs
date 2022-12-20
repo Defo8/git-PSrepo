@@ -9,18 +9,18 @@ namespace ProgramStudent.locations.university
 
     class UniversityClass
     {
-        public static readonly TimeSpan TIMEOFRECITATION = new TimeSpan(1, 30, 0);
-        public static readonly TimeSpan TIMEOFLECTURE = new TimeSpan(1, 30, 0);
-
         public string Name { get; set; }
+        public TimeSpan StartTime { get; set; }
         public TimeSpan Duration { get; set; }
         public bool Presence { get; set; }
-        public UniversityClass(string name, TimeSpan duration, bool presence)
+        public ClassT ClassType { get; set; }
+        public UniversityClass(string name, TimeSpan duration, ClassT classType, TimeSpan startTime)
         {
             Name = name;
+            ClassType = classType;
             Duration = duration;
-            Presence = presence;
+            Presence = false;
+            StartTime = startTime;
         }
-
     }
 }
