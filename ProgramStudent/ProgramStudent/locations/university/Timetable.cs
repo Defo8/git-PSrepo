@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramStudent.locations.university
+namespace ProgramStudent
 {
     enum ClassT
     {
@@ -63,6 +63,43 @@ namespace ProgramStudent.locations.university
             };
 
             Table = timeTable;
+        }
+
+        public void ShowTimetable()
+        {
+            Console.WriteLine("Monday");
+            foreach(UniversityClass clas in Table[0])
+            {
+                Console.WriteLine(clas.Name + ", " + clas.StartTime);
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Tuesday");
+            foreach (UniversityClass clas in Table[1])
+            {
+                Console.WriteLine(clas.Name + ", " + clas.StartTime);
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Wensday");
+            foreach (UniversityClass clas in Table[2])
+            {
+                Console.WriteLine(clas.Name + ", " + clas.StartTime);
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Thursday");
+            foreach (UniversityClass clas in Table[3])
+            {
+                Console.WriteLine(clas.Name + ", " + clas.StartTime);
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Friday");
+            foreach (UniversityClass clas in Table[4])
+            {
+                Console.WriteLine(clas.Name + ", " + clas.StartTime);
+            }
         }
         
     }

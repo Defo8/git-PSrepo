@@ -25,12 +25,10 @@ namespace ProgramStudent
             
             Game game = new Game();
 
-            DateTime date1 = new DateTime(2055, 10, 1);
-            DateTime date2 = new DateTime(2056, 1, 28);
-            TimeSpan s = date1 - date2;
-            Console.WriteLine(s);
+            Timetable timetable = new Timetable();
+            timetable.CreatTimetable();
+            timetable.ShowTimetable();
             Console.ReadKey();
-
             //HUD.MenuIntro();
             game.Menu();
 

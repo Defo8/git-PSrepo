@@ -6,12 +6,11 @@ using System.Threading;
 
 namespace ProgramStudent
 {
-    public class University : ILocation
+    class University : ILocation
     {
         public static readonly TimeSpan CLOSINGHOUR = new TimeSpan(21, 0, 0);
         public static readonly TimeSpan OPENINGOUR = new TimeSpan(6, 0, 0);
         public string Name { get; set; }
-
         public bool IsActive { get; set; }
         public void Hub(Player player)
         {

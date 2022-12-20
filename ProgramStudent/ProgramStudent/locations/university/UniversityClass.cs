@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramStudent.locations.university
+namespace ProgramStudent
 {
 
     class UniversityClass
