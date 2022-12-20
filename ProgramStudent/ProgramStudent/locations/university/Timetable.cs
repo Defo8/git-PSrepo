@@ -6,20 +6,25 @@ using System.Threading.Tasks;
 
 namespace ProgramStudent
 {
-    enum ClassT
+    public enum ClassT
     {
         Lecture,
         Recitation,
         Labolatory
     }
 
-    class Timetable
+    public class Timetable
     {
         public static readonly TimeSpan TIMEOFRECITATION = new TimeSpan(1, 30, 0);
         public static readonly TimeSpan TIMEOFLECTURE = new TimeSpan(1, 30, 0);
         public List<List<UniversityClass>> Table { get; set; }
+
+        public Timetable()
+        {
+            Table = CreatTimetable();
+        }
         
-        public void CreatTimetable()
+        public List<List<UniversityClass>> CreatTimetable()
         {
             List<UniversityClass> Monday = new List<UniversityClass>()
             {
@@ -62,7 +67,7 @@ namespace ProgramStudent
                 Friday
             };
 
-            Table = timeTable;
+            return timeTable;
         }
 
         public void ShowTimetable()

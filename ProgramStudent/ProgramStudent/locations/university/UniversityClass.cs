@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProgramStudent
 {
 
-    class UniversityClass
+    public class UniversityClass
     {
         public string Name { get; set; }
         public TimeSpan StartTime { get; set; }

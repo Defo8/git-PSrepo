@@ -10,6 +10,7 @@ namespace ProgramStudent
         public List<IProduct> Inventory { get; set; } = new();
         public ILocation CurrentLocation { get; set; }
         public TimeConsequence TimeConsequence { get; set; }
+        public Timetable Timetable { get; set; }
         public double Money { get; set; }
         public int KnowledgePoints { get; set; }
         public List<IModify> ActiveModifers { get; set; } = new();
@@ -42,6 +43,7 @@ namespace ProgramStudent
                 Money = 500;
                 KnowledgePoints = 0;
                 NewPlayer = false;
+                Timetable = new Timetable();
             }
         }
         public void ChangeLocation()
