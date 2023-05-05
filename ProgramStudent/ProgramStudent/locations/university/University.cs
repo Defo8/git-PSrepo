@@ -12,6 +12,13 @@ namespace ProgramStudent
         public static readonly TimeSpan OPENINGOUR = new TimeSpan(6, 0, 0);
         public string Name { get; set; }
         public bool IsActive { get; set; }
+        public Timetable Classes { get; set; }
+        public University()
+        {
+            Name = "University";
+            IsActive = true;
+            Classes = new Timetable();
+        }
         public void Hub(Player player)
         {
             while (true)
@@ -52,9 +59,12 @@ namespace ProgramStudent
                 }             
             }
         }
-
         public void AttendOnClasses(Player player)
         {
+            if(IsClassesTime())
+            {
+
+            }
             player.KnowledgePoints += 50;
             Time.Calendar = Time.Calendar.AddHours(3);
             player.TimeConsequence.UpdateIfNeeded(player);
@@ -62,6 +72,9 @@ namespace ProgramStudent
             Thread.Sleep(2000);
         }
 
-
+        private bool IsClassesTime()
+        {
+           
+        }
     }
 }

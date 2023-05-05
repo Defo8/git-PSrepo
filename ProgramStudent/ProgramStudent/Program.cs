@@ -26,7 +26,6 @@ namespace ProgramStudent
             Game game = new Game();
 
             Timetable timetable = new Timetable();
-            timetable.CreatTimetable();
             timetable.ShowTimetable();
             Console.ReadKey();
             //HUD.MenuIntro();

@@ -11,16 +11,18 @@ namespace ProgramStudent
     {
         public string Name { get; set; }
         public TimeSpan StartTime { get; set; }
-        public TimeSpan Duration { get; set; }
+        public TimeSpan EndTime { get; set; }
         public bool Presence { get; set; }
-        public ClassT ClassType { get; set; }
-        public UniversityClass(string name, TimeSpan duration, ClassT classType, TimeSpan startTime)
+        public ClassType ClassType { get; set; }
+        public DayOfWeek ClassDayOfWeek { get; set; }
+        public UniversityClass(string name, ClassType classType, TimeSpan startTime, TimeSpan endTime, DayOfWeek classDayOfWeek)
         {
             Name = name;
             ClassType = classType;
-            Duration = duration;
+            EndTime = endTime;
             Presence = false;
             StartTime = startTime;
+            ClassDayOfWeek = classDayOfWeek;
         }
     }
 }

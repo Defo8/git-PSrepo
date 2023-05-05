@@ -22,14 +22,13 @@ namespace ProgramStudent
         public bool IsSaveLoaded { get; set; }
         public bool PasToMainMenu { get; set; }
         public Player player { get; set; }
-        //public List<ILocation> Locations { get; set; }
         public Game()
         {
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
             ART = projectDirectory + @"\resources\ASCII\";
             SAVE = projectDirectory + @"\saves\";
             IsSaveLoaded = false;
-            player = new Player(); // DWA RAZY PRZYPISUJE
+            player = new Player(); 
         }
         public void SaveGame()
         {
@@ -134,14 +133,13 @@ namespace ProgramStudent
             if(IsSaveLoaded == false)
             {
                 Console.Clear();
-                //PlayerBio bio = HUD.IntroNewGame(); //temporary off
+                //HUD.IntroNewGame(); //temporary off
                 //player.PlayerInfo = bio;
                 IsSaveLoaded = true;
                 player.Locations[0].Hub(player);
             }
             else
-            {
-          
+            {          
                 player.Locations[0].Hub(player);
             }
                         
