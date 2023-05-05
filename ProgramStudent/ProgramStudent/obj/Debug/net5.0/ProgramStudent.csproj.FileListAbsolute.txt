@@ -101,3 +101,4 @@ C:\git-ProgramStudent\ProgramStudent\ProgramStudent\obj\Debug\net5.0\ProgramStud
 C:\git-ProgramStudent\ProgramStudent\ProgramStudent\obj\Debug\net5.0\ref\ProgramStudent.dll
 C:\git-ProgramStudent\ProgramStudent\ProgramStudent\obj\Debug\net5.0\ProgramStudent.pdb
 C:\git-ProgramStudent\ProgramStudent\ProgramStudent\obj\Debug\net5.0\ProgramStudent.genruntimeconfig.cache
+C:\git-ProgramStudent\ProgramStudent\ProgramStudent\obj\Debug\net5.0\ProgramStudent.csproj.CopyComplete

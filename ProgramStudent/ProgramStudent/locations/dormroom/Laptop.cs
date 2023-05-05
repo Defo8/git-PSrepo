@@ -67,11 +67,6 @@ namespace ProgramStudent
             string name = Console.ReadLine();
             NotesFactory factory = new NotesFactory();
             NoteList.Add(factory.MakeNote(name));
-
-            Random rnd = new Random();
-            Roommate roommate = new Roommate();
-
-            NoteList.Add(roommate.GiveNote());
         }
 
         public void DisplayAllNotes()
@@ -166,8 +161,6 @@ namespace ProgramStudent
                     }
                 }
 
-
-                //if czy time < 1;
                 Time.Calendar = Time.Calendar.AddHours(time);
                 player.TimeConsequence.UpdateIfNeeded(player);
                 player.ChangeStatisticsCurrentValue(typeof(Company), 5 * time);
