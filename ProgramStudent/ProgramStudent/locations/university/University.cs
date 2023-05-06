@@ -61,20 +61,116 @@ namespace ProgramStudent
         }
         public void AttendOnClasses(Player player)
         {
-            if(IsClassesTime())
+            UniversityClass currentClasses = ReturnAvailableClasses();
+            if (currentClasses == null)
             {
-
+                Console.Clear();
             }
-            player.KnowledgePoints += 50;
-            Time.Calendar = Time.Calendar.AddHours(3);
-            player.TimeConsequence.UpdateIfNeeded(player);
-            Console.WriteLine("Attending on Classes...");
-            Thread.Sleep(2000);
+            else
+            {
+                string text = "Attending...";
+                foreach(char c in text)
+                {
+                    Console.Write(c);
+                    Thread.Sleep(200);
+                }
+                currentClasses.Presence = true;
+                player.KnowledgePoints += 50;
+                Time.Calendar += currentClasses.EndTime - currentClasses.StartTime;
+                player.TimeConsequence.UpdateIfNeeded(player);
+            }
         }
 
-        private bool IsClassesTime()
+        private UniversityClass ReturnAvailableClasses()
         {
-           
+            DayOfWeek currentDayOfWeek = Time.Calendar.DayOfWeek;
+            if (currentDayOfWeek == DayOfWeek.Monday)
+            {
+                foreach (UniversityClass clas in Classes.Table[0])
+                {
+                    if (clas.StartTime > Time.Calendar.TimeOfDay && Time.Calendar.TimeOfDay < clas.EndTime)
+                        return DecideAboutAttending(clas);
+                }
+                Console.WriteLine("There is no classes that you can attend on right now");
+                Thread.Sleep(1500);
+                return null;
+            }
+            else if (currentDayOfWeek == DayOfWeek.Tuesday)
+            {
+                foreach (UniversityClass clas in Classes.Table[1])
+                {
+                    if (clas.StartTime > Time.Calendar.TimeOfDay && Time.Calendar.TimeOfDay < clas.EndTime)
+                        return DecideAboutAttending(clas);
+                }
+                Console.WriteLine("There is no classes that you can attend on right now");
+                Thread.Sleep(1500);
+                return null;
+            }
+            else if (currentDayOfWeek == DayOfWeek.Wednesday)
+            {
+                foreach (UniversityClass clas in Classes.Table[2])
+                {
+                    if (clas.StartTime > Time.Calendar.TimeOfDay && Time.Calendar.TimeOfDay < clas.EndTime)
+                        return DecideAboutAttending(clas);
+                }
+                Console.WriteLine("There is no classes that you can attend on right now");
+                Thread.Sleep(1500);
+                return null;
+            }
+            else if (currentDayOfWeek == DayOfWeek.Thursday)
+            {
+                foreach (UniversityClass clas in Classes.Table[3])
+                {
+                    if (Time.Calendar.TimeOfDay > clas.StartTime && Time.Calendar.TimeOfDay < clas.EndTime)
+                        return DecideAboutAttending(clas);
+                }
+                Console.WriteLine("There is no classes that you can attend on right now");
+                Thread.Sleep(1500);
+                return null;
+            }
+            else if (currentDayOfWeek == DayOfWeek.Friday)
+            {
+                foreach (UniversityClass clas in Classes.Table[4])
+                {
+                    if (clas.StartTime > Time.Calendar.TimeOfDay && Time.Calendar.TimeOfDay < clas.EndTime)
+                        return DecideAboutAttending(clas);
+                }
+                Console.WriteLine("There is no classes that you can attend on right now");
+                Thread.Sleep(1500);
+                return null;
+            }
+            else
+            {
+                Console.WriteLine("Weekend! Free time!");
+                return null;
+            }
+
+        }
+
+        private UniversityClass DecideAboutAttending(UniversityClass clas)
+        {
+            while (true)
+            {
+                Console.WriteLine($"{clas.Name} class is going on right now");
+                Console.WriteLine("Do you want to take a part? YES/NO");
+                string answer = Console.ReadLine();
+                answer = answer.ToLower();
+                if (answer == "yes")
+                {
+                    return clas;
+                }
+                else if (answer == "no")
+                {
+                    Console.WriteLine("You don't go on your class");
+                    Thread.Sleep(1500);
+                    return null;
+                }
+                else
+                {
+                    Console.WriteLine("Type yes or no");
+                    Thread.Sleep(1500);
+                }
+            }
         }
     }
 }
