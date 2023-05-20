@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git-ProgramStudent\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj": {}
+    "C:\\Users\\Defo\\Source\\Repos\\git-PSrepo\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj": {}
   },
   "projects": {
-    "C:\\git-ProgramStudent\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj": {
+    "C:\\Users\\Defo\\Source\\Repos\\git-PSrepo\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git-ProgramStudent\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj",
+        "projectUniqueName": "C:\\Users\\Defo\\Source\\Repos\\git-PSrepo\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj",
         "projectName": "ProgramStudent",
-        "projectPath": "C:\\git-ProgramStudent\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj",
+        "projectPath": "C:\\Users\\Defo\\Source\\Repos\\git-PSrepo\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj",
         "packagesPath": "C:\\Users\\Defo\\.nuget\\packages\\",
-        "outputPath": "C:\\git-ProgramStudent\\ProgramStudent\\ProgramStudent\\obj\\",
+        "outputPath": "C:\\Users\\Defo\\Source\\Repos\\git-PSrepo\\ProgramStudent\\ProgramStudent\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Defo\\AppData\\Roaming\\NuGet\\NuGet.Config",

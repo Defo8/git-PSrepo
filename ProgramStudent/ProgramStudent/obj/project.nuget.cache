@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oF5RGZmksEVNrEk/Mmpz2oSD9BboHRslicNNeK2yWIOMl7naDTbnHzm+KjzO+NX+0MgaACu4t7hDUfGWr06Qmw==",
+  "dgSpecHash": "UyTzSUyFxacg0anRYcQQj31R97Y4kVqQYYXFv3aU8EUss3yIhEHcIgDoWW5RLClPUTTZMR4WPBcHkzxs8T0hBg==",
   "success": true,
-  "projectFilePath": "C:\\git-ProgramStudent\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj",
+  "projectFilePath": "C:\\Users\\Defo\\Source\\Repos\\git-PSrepo\\ProgramStudent\\ProgramStudent\\ProgramStudent.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Defo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],

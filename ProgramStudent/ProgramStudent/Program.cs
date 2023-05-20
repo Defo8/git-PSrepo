@@ -24,11 +24,7 @@ namespace ProgramStudent
             ShowWindow(ThisConsole, MAXIMIZE);        
             
             Game game = new Game();
-
-            Timetable timetable = new Timetable();
-            timetable.ShowTimetable();
-            Console.ReadKey();
-            //HUD.MenuIntro();
+            HUD.MenuIntro();
             game.Menu();
 
         }
