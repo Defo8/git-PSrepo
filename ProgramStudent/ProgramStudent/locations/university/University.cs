@@ -23,12 +23,12 @@ namespace ProgramStudent
         {
             while (true)
             {
-                if (Time.Calendar.TimeOfDay > CLOSINGHOUR || Time.Calendar.TimeOfDay < OPENINGOUR)
+                if (player.PlayerTime.Calendar.TimeOfDay > CLOSINGHOUR || player.PlayerTime.Calendar.TimeOfDay < OPENINGOUR)
                 {
                     Console.Clear();
                     Console.WriteLine("University is closed... (Open at 6:00 - 21: 00)");
                     IsActive = false;
-                    Time.Calendar.AddMinutes(-20);
+                    player.PlayerTime.Calendar.AddMinutes(-20);
                     Thread.Sleep(3000);
                     break;
                 }
@@ -38,7 +38,7 @@ namespace ProgramStudent
                 }
 
                 Console.Clear();
-                Console.WriteLine("== Academy == " + "Calendary: " + Time.Calendar + " " + Time.Calendar.DayOfWeek);
+                Console.WriteLine("== Academy == " + "Calendary: " + player.PlayerTime.Calendar + " " + player.PlayerTime.Calendar.DayOfWeek);
                 Console.WriteLine("1. Attend on classes");
                 Console.WriteLine("0. Go somwehere else");
                 Console.WriteLine("What you want to do? (Number): ");
@@ -61,7 +61,7 @@ namespace ProgramStudent
         }
         public void AttendOnClasses(Player player)
         {
-            UniversityClass currentClasses = ReturnAvailableClasses();
+            UniversityClass currentClasses = ReturnAvailableClasses(player);
             if (currentClasses == null)
             {
                 Console.Clear();
@@ -76,19 +76,19 @@ namespace ProgramStudent
                 }
                 currentClasses.Presence = true;
                 player.KnowledgePoints += 50;
-                Time.Calendar += currentClasses.EndTime - currentClasses.StartTime;
+                player.PlayerTime.Calendar += currentClasses.EndTime - currentClasses.StartTime;
                 player.TimeConsequence.UpdateIfNeeded(player);
             }
         }
 
-        private UniversityClass ReturnAvailableClasses()
+        private UniversityClass ReturnAvailableClasses(Player player)
         {
-            DayOfWeek currentDayOfWeek = Time.Calendar.DayOfWeek;
+            DayOfWeek currentDayOfWeek = player.PlayerTime.Calendar.DayOfWeek;
             if (currentDayOfWeek == DayOfWeek.Monday)
             {
                 foreach (UniversityClass clas in Classes.Table[0])
                 {
-                    if (clas.StartTime > Time.Calendar.TimeOfDay && Time.Calendar.TimeOfDay < clas.EndTime)
+                    if (clas.StartTime > player.PlayerTime.Calendar.TimeOfDay && player.PlayerTime.Calendar.TimeOfDay < clas.EndTime)
                         return DecideAboutAttending(clas);
                 }
                 Console.WriteLine("There is no classes that you can attend on right now");
@@ -99,7 +99,7 @@ namespace ProgramStudent
             {
                 foreach (UniversityClass clas in Classes.Table[1])
                 {
-                    if (clas.StartTime > Time.Calendar.TimeOfDay && Time.Calendar.TimeOfDay < clas.EndTime)
+                    if (clas.StartTime > player.PlayerTime.Calendar.TimeOfDay && player.PlayerTime.Calendar.TimeOfDay < clas.EndTime)
                         return DecideAboutAttending(clas);
                 }
                 Console.WriteLine("There is no classes that you can attend on right now");
@@ -110,7 +110,7 @@ namespace ProgramStudent
             {
                 foreach (UniversityClass clas in Classes.Table[2])
                 {
-                    if (clas.StartTime > Time.Calendar.TimeOfDay && Time.Calendar.TimeOfDay < clas.EndTime)
+                    if (clas.StartTime > player.PlayerTime.Calendar.TimeOfDay && player.PlayerTime.Calendar.TimeOfDay < clas.EndTime)
                         return DecideAboutAttending(clas);
                 }
                 Console.WriteLine("There is no classes that you can attend on right now");
@@ -121,7 +121,7 @@ namespace ProgramStudent
             {
                 foreach (UniversityClass clas in Classes.Table[3])
                 {
-                    if (Time.Calendar.TimeOfDay > clas.StartTime && Time.Calendar.TimeOfDay < clas.EndTime)
+                    if (player.PlayerTime.Calendar.TimeOfDay > clas.StartTime && player.PlayerTime.Calendar.TimeOfDay < clas.EndTime)
                         return DecideAboutAttending(clas);
                 }
                 Console.WriteLine("There is no classes that you can attend on right now");
@@ -132,7 +132,7 @@ namespace ProgramStudent
             {
                 foreach (UniversityClass clas in Classes.Table[4])
                 {
-                    if (clas.StartTime > Time.Calendar.TimeOfDay && Time.Calendar.TimeOfDay < clas.EndTime)
+                    if (clas.StartTime > player.PlayerTime.Calendar.TimeOfDay && player.PlayerTime.Calendar.TimeOfDay < clas.EndTime)
                         return DecideAboutAttending(clas);
                 }
                 Console.WriteLine("There is no classes that you can attend on right now");

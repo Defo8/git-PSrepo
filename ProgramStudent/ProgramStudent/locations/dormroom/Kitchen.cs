@@ -82,7 +82,7 @@ namespace ProgramStudent
                         {
                             FoodInKitchenList.Remove(food);
                             player.Statistics[0].Increase(food.FoodValue);
-                            Time.Calendar = Time.Calendar.AddMinutes(15);
+                            player.PlayerTime.Calendar = player.PlayerTime.Calendar.AddMinutes(15);
 
                         }
                         else

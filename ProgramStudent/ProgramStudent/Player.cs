@@ -9,6 +9,7 @@ namespace ProgramStudent
         public List<Needmant> Statistics { get; set; }
         public List<IProduct> Inventory { get; set; } = new();
         public ILocation CurrentLocation { get; set; }
+        public Time PlayerTime { get; set; }
         public TimeConsequence TimeConsequence { get; set; }
         public Timetable Timetable { get; set; }
         public double Money { get; set; }
@@ -39,6 +40,7 @@ namespace ProgramStudent
                 CurrentLocation = Locations[0];
                 
                 TimeConsequence = new TimeConsequence(new DateTime(2054, 10, 1, 9, 0, 0));
+                PlayerTime = new Time();
 
                 Money = 500;
                 KnowledgePoints = 0;
@@ -61,7 +63,7 @@ namespace ProgramStudent
             {
                 CurrentLocation = Locations[2];
             }
-            Time.Calendar.AddMinutes(20);
+            PlayerTime.Calendar.AddMinutes(20);
             TimeConsequence.UpdateIfNeeded(this);                   
         }
         public void ChangeStatisticsMaxValue(Type needmant, int amount)
@@ -258,9 +260,9 @@ namespace ProgramStudent
         }
         public bool ModfierValidDateCheck(IModify mod)  // Check valid date, if it is negative timespan it means that modfiers is out of date (false)
         {
-            TimeSpan endofTime = Time.Calendar - Time.Calendar;
+            TimeSpan endofTime = PlayerTime.Calendar - PlayerTime.Calendar;
 
-            if (mod.Duration - Time.Calendar >= endofTime)
+            if (mod.Duration - PlayerTime.Calendar >= endofTime)
             {
                 return true;
             }

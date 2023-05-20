@@ -22,7 +22,7 @@ namespace ProgramStudent
                 Console.Clear();
                 Console.WriteLine(File.ReadAllText(Game.ART + "laptop.txt"));
                 Console.WriteLine("");
-                Console.WriteLine("Calendary: " + Time.Calendar);
+                Console.WriteLine("Calendary: " + player.PlayerTime.Calendar);
                 Console.WriteLine("== Dorm: Laptop ==");
                 Console.WriteLine("1. Talk with someone on PresentBook");
                 Console.WriteLine("2. Play games");
@@ -94,7 +94,7 @@ namespace ProgramStudent
                     }
                     else
                     {
-                        Time.Calendar = Time.Calendar.AddHours(h);
+                        player.PlayerTime.Calendar = player.PlayerTime.Calendar.AddHours(h);
                         player.TimeConsequence.UpdateIfNeeded(player);
                         player.KnowledgePoints += h * PREPARE;
                         string wrtie = "*Learning...";
@@ -126,7 +126,7 @@ namespace ProgramStudent
                 Console.Write(t);
                 Thread.Sleep(20);
             }
-            Time.Calendar = Time.Calendar.AddMinutes(15);
+            player.PlayerTime.Calendar = player.PlayerTime.Calendar.AddMinutes(15);
             player.TimeConsequence.UpdateIfNeeded(player);
             player.ChangeStatisticsCurrentValue(typeof(Company), 5);
             player.ChangeStatisticsCurrentValue(typeof(MentalHealth), 3);
@@ -161,7 +161,7 @@ namespace ProgramStudent
                     }
                 }
 
-                Time.Calendar = Time.Calendar.AddHours(time);
+                player.PlayerTime.Calendar = player.PlayerTime.Calendar.AddHours(time);
                 player.TimeConsequence.UpdateIfNeeded(player);
                 player.ChangeStatisticsCurrentValue(typeof(Company), 5 * time);
                 player.ChangeStatisticsCurrentValue(typeof(MentalHealth), 3 * time);

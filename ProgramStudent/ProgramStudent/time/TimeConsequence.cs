@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace ProgramStudent
 {
-    public class TimeConsequence : Time
+    public class TimeConsequence
     {
         public static readonly TimeSpan HOUR = new DateTime(1, 1, 1, 1, 0, 0) - new DateTime(1, 1, 1, 0, 0, 0);
         public DateTime LastChangeCalendar { get; set; }
@@ -32,18 +30,18 @@ namespace ProgramStudent
         public void UpdateIfNeeded(Player player) 
         {
             
-            TimeSpan ourDiffrence = Time.Calendar - player.TimeConsequence.LastChangeCalendar;
-            double totalHoursPast = Math.Floor(ourDiffrence.TotalHours);
+            TimeSpan TIME_PAST_FROM_LAST_UPDATE = player.PlayerTime.Calendar - player.TimeConsequence.LastChangeCalendar;
+            double HOURS_PAST_FROM_LAST_UPDATE = Math.Floor(TIME_PAST_FROM_LAST_UPDATE.TotalHours);
             Random rnd = new Random();
-            if (ourDiffrence.TotalHours >= 1)
+            if (TIME_PAST_FROM_LAST_UPDATE.TotalHours >= 1)
             {
-                if (ourDiffrence.TotalHours > 11) // to reward strange and destructiv behavior like sleeping 11h+ or playing games for 11h + 
+                if (TIME_PAST_FROM_LAST_UPDATE.TotalHours > 11) // to reward strange and destructiv behavior like sleeping 11h+ or playing games for 11h + 
                 {
-                    LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
+                    LastChangeCalendar = LastChangeCalendar.Add(TIME_PAST_FROM_LAST_UPDATE);
                     Console.Clear();
                     Console.WriteLine("REMEMBER! IF YOU STUDY YOU WILL PASS, IF YOU NOT YOU WON'T... :) ");
                     Thread.Sleep(2000);
-                    for (int i = 0; i < totalHoursPast; i++)
+                    for (int i = 0; i < HOURS_PAST_FROM_LAST_UPDATE; i++)
                     {
                         player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(6, 16));
                         player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(10, 15));
@@ -61,7 +59,7 @@ namespace ProgramStudent
                         }
                     }
 
-                    if (Time.Calendar >= Time.EndOfSemester)
+                    if (player.PlayerTime.Calendar >= player.PlayerTime.EndOfSemester)
                     {
                         while (true)
                         {
@@ -79,10 +77,10 @@ namespace ProgramStudent
                     return;
                 }
 
-                LastChangeCalendar = LastChangeCalendar.Add(ourDiffrence);
+                LastChangeCalendar = LastChangeCalendar.Add(TIME_PAST_FROM_LAST_UPDATE);
 
 
-                for (int i = 0; i < totalHoursPast; i++)
+                for (int i = 0; i < HOURS_PAST_FROM_LAST_UPDATE; i++)
                 {
                     player.ChangeStatisticsCurrentValue(typeof(Food), -rnd.Next(4, 16));
                     player.ChangeStatisticsCurrentValue(typeof(Energy), -rnd.Next(5, 10));
@@ -93,7 +91,7 @@ namespace ProgramStudent
                 }
             }
 
-            if(Time.Calendar >= Time.EndOfSemester)
+            if(player.PlayerTime.Calendar >= player.PlayerTime.EndOfSemester)
             {
                 while(true)
                 {
@@ -107,40 +105,6 @@ namespace ProgramStudent
                         Environment.Exit(0);
                 }    
             }
-
-            // MakeEvents(player); // DO TESTOW;
         }
-
-        public void MakeEvents(Player player)
-        {
-            Random rnd = new Random();
-            Dictionary<Type, int> ChorobaCGDict = new Dictionary<Type, int>
-            {
-                {typeof(Sleep), -2 },
-                {typeof(Energy), -5 },
-                {typeof(Food), -3},               
-            };
-
-            Dictionary<Type, int> ChorobaMVDict = new Dictionary<Type, int>
-            {
-                {typeof(Sleep), -5 },
-                {typeof(Energy), -15 },
-                {typeof(Food), -5},
-            };
-
-            IModify ChorobaCG = new ChangeMaxValueModifier(player, "Illness", Time.Calendar.AddDays(7), "You feel sick", ChorobaMVDict);
-            Event ChorobaEvent = new Event("You got sick!", "You are sick and you feel bad", ChorobaCG);
-
-            ListOfEvent = new List<Event>
-            {
-                ChorobaEvent
-            };
-
-            ChorobaEvent.Occur(player);
-
-        }
-
-
-
     }
 }

@@ -32,11 +32,11 @@ namespace ProgramStudent
         {
             while (true)
             {
-                if (Time.Calendar.TimeOfDay > CLOSINGHOUR || Time.Calendar.TimeOfDay < OPENINGOUR) // add to function
+                if (player.PlayerTime.Calendar.TimeOfDay > CLOSINGHOUR || player.PlayerTime.Calendar.TimeOfDay < OPENINGOUR) // add to function
                 {
                     Console.WriteLine("Shop is closed... (Open at 7:00 - 22: 00)");
                     IsActive = false;
-                    Time.Calendar.AddMinutes(-20);
+                    player.PlayerTime.Calendar.AddMinutes(-20);
                     Thread.Sleep(3000);
                     break;
                 }
@@ -46,7 +46,7 @@ namespace ProgramStudent
                 }
 
                 Console.Clear();
-                Console.WriteLine("== Shop  == " + "Calendary: " + Time.Calendar + " " + Time.Calendar.DayOfWeek);
+                Console.WriteLine("== Shop  == " + "Calendary: " + player.PlayerTime.Calendar + " " + player.PlayerTime.Calendar.DayOfWeek);
                 Console.WriteLine("1. Buy something");
                 Console.WriteLine("0. Go somwehere else");
                 Console.WriteLine("What you want to do? (Number): ");
